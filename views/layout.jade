@@ -1,0 +1,34 @@
+- var socialLinks = ['Twitter', 'LinkedIn']
+- var siteLinks = ['home', 'playtime', 'portfolio', 'blog', 'contact']
+
+doctype
+html(ng-app='GHApp' ng-controller='GHCtrl')
+    head
+        title #{title} Gareth Hughes
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+        script(src='lib/angular/angular.min.js')
+        script(src='/javascripts/app.js')
+    body
+        header
+            h1.pull-left Gareth Hughes
+            #social-links.pull-right
+                ul
+                    li(ng-repeat='socialLink in socialLinks')
+                        a(href='{{ socialLink.link }}')
+                            i.fa(class='{{socialLink.icon}}')
+            .clearfix
+            .seperator
+            nav.pull-right
+                ul
+                    each val in siteLinks
+                        li
+                            a(href='/' + val)= val
+            .clearfix
+        .container
+            .jumbotron
+                block top-content
+            section.main-content
+                block main-content
+        footer
+            p Running on node.js with Express, Jade and Stylus
