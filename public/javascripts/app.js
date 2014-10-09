@@ -16,5 +16,27 @@
                     link: 'http://lnkd.in/dqY9Qxc'
                 }
             ];
+            $scope.siteLinks = [
+                {
+                    name: 'home',
+                    link: '/'
+                },
+                {
+                    name: 'playtime',
+                    link: '/playtime'
+                },
+                {
+                    name: 'portfolio',
+                    link: '/portfolio'
+                },
+                {
+                    name: 'blog',
+                    link: '/blog'
+                },
+                {
+                    name: 'contact me',
+                    link: '/contact'
+                }
+            ];
         });
 }());
