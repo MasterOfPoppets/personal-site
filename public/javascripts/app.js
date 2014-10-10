@@ -13,7 +13,7 @@
                 },
                 {
                     icon: 'fa-linkedin',
-                    link: 'http://lnkd.in/dqY9Qxc'
+                    link: 'http://uk.linkedin.com/pub/gareth-hughes/a1/50/765/'
                 }
             ];
             $scope.siteLinks = [
