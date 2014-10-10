@@ -6,7 +6,8 @@
     var express = require('express'),
         stylus = require('stylus'),
         nib = require('nib'),
-        app = express();
+        app = express(),
+        port = process.env.PORT || 3000;
     
     function compile(str, path) {
         return stylus(str)
@@ -44,5 +45,5 @@
             {title: ''}
         );
     });
-    app.listen(3000);
+    app.listen(port);
 }());
