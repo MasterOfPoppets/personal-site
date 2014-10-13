@@ -14,6 +14,10 @@
                 {
                     icon: 'fa-linkedin',
                     link: 'http://uk.linkedin.com/pub/gareth-hughes/a1/50/765/'
+                },
+                {
+                    icon: 'fa-github-alt',
+                    link: 'https://github.com/MasterOfPoppets/personal-site'
                 }
             ];
             $scope.siteLinks = [
