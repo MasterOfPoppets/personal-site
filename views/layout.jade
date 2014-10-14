@@ -12,7 +12,7 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
             #social-links.pull-right
                 ul
                     li(ng-repeat='socialLink in socialLinks')
-                        a(href='{{ socialLink.link }}')
+                        a(target='_blank', href='{{ socialLink.link }}')
                             i.fa(class='{{ socialLink.icon }}')
             .clearfix
             .separator
@@ -23,8 +23,8 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
             .clearfix
         .container
             .jumbotron
-                block top-content
-            section.main-content
+                block jumbotron-content
+            .main-content
                 block main-content
         footer
             p Running on node.js with Express, Jade and Stylus
