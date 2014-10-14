@@ -26,6 +26,7 @@
     }));
     app.use('/', router.router);
     app.use(express.static(__dirname + '/public'));
+    app.use('*', router.router);
     
     app.listen(port);
 }());

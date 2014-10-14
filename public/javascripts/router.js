@@ -10,51 +10,23 @@
         next();
     });
     
-    router.get('/contact', function (req, res) {
+    router.get('/partials/:name', function (req, res) {
         res.render(
-            'contact',
+            'partials/' + req.params.name,
             {title: 'Contact | '}
         );
     });
     
-    router.get('/blog', function (req, res) {
+    router.get('/partials/portfolio/:portfolioItem', function (req, res) {
         res.render(
-            'blog',
-            {title: 'Blog | '}
-        );
-    });
-    
-    router.get('/playtime', function (req, res) {
-        res.render(
-            'playtime',
-            {title: 'Playtime | '}
-        );
-    });
-    
-    router.get('/portfolio', function (req, res) {
-        res.render(
-            'portfolio/portfolio',
+            'partials/portfolio-items/' + req.params.portfolioItem,
             {title: 'Portfolio | '}
-        );
-    });
-    
-    router.get('/portfolio/:portfolioItem', function (req, res) {
-        res.render(
-            'portfolio/portfolio-items/' + req.params.portfolioItem,
-            {title: 'Portfolio | '}
-        );
-    });
-    
-    router.get('/skills', function (req, res) {
-        res.render(
-            'skills',
-            {title: 'Skill | '}
         );
     });
     
     router.get('/', function (req, res) {
         res.render(
-            'home/home',
+            'layout',
             {title: ''}
         );
     });
