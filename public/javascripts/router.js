@@ -41,7 +41,7 @@
         }
         
         if (req.query.w) {
-            img.resize(req.query.w);
+            img.resize(req.query.w, "<");
         }
         
         img.stream(function (err, stdout, stderr) {
