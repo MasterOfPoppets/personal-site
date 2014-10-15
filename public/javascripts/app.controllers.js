@@ -34,12 +34,16 @@
     
         .controller('PortfolioCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
             $scope.isShowPortfolioItem = ModelService.showPortfolioItem;
-        
-            $scope.showPortfolioItem = function () {
-                ModelService.setShowPortfolioItem(true);
-            };
             
             PageFactory.setTitle('Portfolio | Gareth Hughes');
+            ModelService.setShowPortfolioItem(false);
+        }])
+    
+        .controller('PortfolioItemCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
+            $scope.isShowPortfolioItem = ModelService.showPortfolioItem;
+            
+            PageFactory.setTitle('Portfolio | Gareth Hughes');
+            ModelService.setShowPortfolioItem(true);
         }])
     
         .controller('SkillsCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {

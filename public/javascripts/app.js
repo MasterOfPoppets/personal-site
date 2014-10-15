@@ -20,7 +20,7 @@
                     templateUrl: function (params) {
                         return 'partials/portfolio/' + params.portfolioItem;
                     },
-                    controller: 'PortfolioCtrl'
+                    controller: 'PortfolioItemCtrl'
                 })
                 .when('/playtime', {
                     templateUrl: 'partials/playtime',
