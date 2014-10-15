@@ -26,6 +26,12 @@
                     templateUrl: 'partials/playtime',
                     controller: 'PlaytimeCtrl'
                 })
+                .when('/playtime/:playtimeItem', {
+                    templateUrl: function (params) {
+                        return 'partials/playtime/' + params.playtimeItem;
+                    },
+                    controller: 'PlaytimeCtrl'
+                })
                 .when('/blog', {
                     templateUrl: 'partials/blog',
                     controller: 'BlogCtrl'

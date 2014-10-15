@@ -27,7 +27,20 @@
             ModelService.setShowPortfolioItem(false);
         }])
     
-        .controller('PlaytimeCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {
+        .controller('PlaytimeCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
+            $scope.testy = {
+                imgSrc: '',
+                imgSrc2: ''
+            };
+            
+            $scope.test = function () {
+                $scope.testy.imgSrc = 'images/playtime/IMG_1129.JPG?w=720';
+            };
+            
+            $scope.test2 = function () {
+                $scope.testy.imgSrc2 = 'images/playtime/IMG_1129.JPG?w=320';
+            };
+            
             PageFactory.setTitle('Playtime | Gareth Hughes');
             ModelService.setShowPortfolioItem(false);
         }])

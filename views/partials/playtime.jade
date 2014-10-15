@@ -2,4 +2,17 @@ extends partialLayout
 block jumbotron-content
     h1 Playtime!
         br
-        small Have fun with some cool web stuff
+        small Some cool web stuff
+block main-content
+    section#playtime-items
+        .row
+            .col-sm-4
+                a(ng-href='/playtime/dynamic-image-system') DIS
+            .col-sm-4
+                a(ng-href='/playtime/test') Test
+            .col-sm-4
+                a(ng-href='/playtime/test') Test
+    section#playtime-item-detail
+        .row
+            .col-sm-12
+                block playtime-item

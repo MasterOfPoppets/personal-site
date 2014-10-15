@@ -1,0 +1,45 @@
+extends ../playtime
+block playtime-item
+    h1 Dynamic imaging systems
+    p Lets take a look at the image below...
+    img(src='images/playtime/IMG_1129.JPG')
+    p
+        | ...took a while to load didn't it!
+    p
+        | Thats because your browser had to make a request
+        | to the server, which could be on the other side of the
+        | world to get a copy of that image.
+    p So what about this one...
+    button(ng-click='test()') Click to load image
+    .image-loader-720
+        img(ng-src='{{testy.imgSrc}}')
+    p
+        | That should have been faster - but the images look 
+        | the same size, so what is going on here?
+    p   
+        | The first image was the original image that I took
+        | and uploaded to the server. It is in a massivley
+        | high resolution - fantastic for viewing on the telly
+        | or doing some really precise image manipulation, but
+        | when we are displaying it on a computer monitor, or
+        | even a mobile phone - it might be a bit excessive!
+    p
+        | The second image however, has been manipulated by the
+        | server and reduced to a width of 720px - which just 
+        | so happens to be the width of this page. Consequently
+        | the file that is hauled back across the internet to
+        | your browser is smaller in size, and therefore quicker
+        | to load! All without reducing the quality of the image.
+    p
+        | The old fashioned way of doing this would to have been
+        | to create many different images, one for each of the 
+        | sizes that you might need, and upload them all to the 
+        | server. The important thing to note about this approach
+        | is that we have only uploaded one image to the server,
+        | which could ultimately save you space and therefore money.
+    p We are on a low resolution mobile screen?
+    button(ng-click='test2()') Click to load image
+    .image-loader-320
+        img(ng-src='{{testy.imgSrc2}}')
+    p No problem, we'll just load up an even smaller version!
+    

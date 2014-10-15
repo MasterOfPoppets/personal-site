@@ -6,7 +6,8 @@
         "express": "^4.8.7",
         "jade": "*",
         "stylus": "*",
-        "nib": "*"
+        "nib": "*",
+        "gm": "^1.16.0"
     },
     "devDependencies": {
         "karma": "^0.12.23",
