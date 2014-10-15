@@ -1,12 +1,14 @@
 doctype
 html(ng-app='GHApp' ng-controller='GHCtrl')
     head
-        title #{title} Gareth Hughes
+        title(ng-bind='PageFactory.title()')
         base(href='/')
         link(rel='stylesheet', href='/stylesheets/style.css')
         link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
         script(src='/lib/angular/angular.min.js')
         script(src='/lib/angular/angular-route.js')
+        script(src='/javascripts/app.controllers.js')
+        script(src='/javascripts/app.factories.js')
         script(src='/javascripts/app.js')
     body
         header

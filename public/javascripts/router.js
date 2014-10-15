@@ -12,22 +12,19 @@
     
     router.get('/partials/:name', function (req, res) {
         res.render(
-            'partials/' + req.params.name,
-            {title: 'Contact | '}
+            'partials/' + req.params.name
         );
     });
     
     router.get('/partials/portfolio/:portfolioItem', function (req, res) {
         res.render(
-            'partials/portfolio-items/' + req.params.portfolioItem,
-            {title: 'Portfolio | '}
+            'partials/portfolio-items/' + req.params.portfolioItem
         );
     });
     
     router.get('/', function (req, res) {
         res.render(
-            'layout',
-            {title: ''}
+            'layout'
         );
     });
     

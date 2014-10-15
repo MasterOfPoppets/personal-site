@@ -3,39 +3,41 @@
 (function () {
     'use strict';
     
-    angular.module('GHApp', ['ngRoute'])
+    angular.module('GHApp', ['ngRoute', 'GHControllers', 'GHFactories'])
     
-        .config(function ($routeProvider, $locationProvider) {
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
             $routeProvider
                 .when('/skills', {
-                    templateUrl: 'partials/skills'
+                    templateUrl: 'partials/skills',
+                    controller: 'SkillsCtrl'
                 })
                 .when('/portfolio', {
-                    templateUrl: 'partials/portfolio'
+                    templateUrl: 'partials/portfolio',
+                    controller: 'PortfolioCtrl'
                 })
                 .when('/portfolio/:portfolioItem', {
-                    templateUrl: 'partials/portfolio/gbst-syn'
+                    templateUrl: function (params) {
+                        return 'partials/portfolio/' + params.portfolioItem;
+                    },
+                    controller: 'PortfolioCtrl'
                 })
                 .when('/playtime', {
-                    templateUrl: 'partials/playtime'
+                    templateUrl: 'partials/playtime',
+                    controller: 'PlaytimeCtrl'
                 })
                 .when('/blog', {
-                    templateUrl: 'partials/blog'
+                    templateUrl: 'partials/blog',
+                    controller: 'BlogCtrl'
                 })
                 .when('/contact', {
-                    templateUrl: 'partials/contact'
+                    templateUrl: 'partials/contact',
+                    controller: 'ContactCtrl'
                 })
                 .when('/', {
-                    templateUrl: 'partials/home'
+                    templateUrl: 'partials/home',
+                    controller: 'HomeCtrl'
                 })
                 .otherwise({redirectTo: '/'});
-        })
-    
-        .controller('GHCtrl', function ($scope, $http) {
-            $http.get('/config.json').success(function (data) {
-                $scope.socialLinks = data.socialLinks;
-                $scope.siteLinks = data.siteLinks;
-            });
-        });
+        }]);
 }());

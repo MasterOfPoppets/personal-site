@@ -7,18 +7,18 @@ block main-content
     section#portfolio-items
         .row
             .col-sm-4
-                a(href='/portfolio/gbst-syn')
+                a(ng-href='/portfolio/gbst-syn', ng-click=('showPortfolioItem()'))
                     img(src='/images/portfolio/syn-logo.png')
             .col-sm-4
-                a(href='/portfolio/ombudz')
+                a(ng-href='/portfolio/ombudz', ng-click=('showPortfolioItem()'))
                     img(src='/images/portfolio/syn-logo.png')
             .col-sm-4
-                a(href='/portfolio/ombudz')
+                a(ng-href='/portfolio/ombudz', ng-click=('showPortfolioItem()'))
                     img(src='/images/portfolio/syn-logo.png')
         .row
             .col-sm-4.col-sm-offset-4 
                 button.btn.btn-info.center-block View more...
-    section#portfolio-item-detail
+    section#portfolio-item-detail(ng-show='isShowPortfolioItem()')
         .row
             .col-sm-12
                 block portfolio-item
