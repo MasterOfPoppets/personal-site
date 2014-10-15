@@ -28,9 +28,15 @@
         }])
     
         .controller('PlaytimeCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
+            $scope.coords = {
+                xCoord: 1600,
+                yCoord: 3150
+            };
             $scope.testy = {
                 imgSrc: '',
-                imgSrc2: ''
+                imgSrc2: '',
+                imgSrc3: '',
+                imgSrc4: ''
             };
             
             $scope.test = function () {
@@ -39,6 +45,14 @@
             
             $scope.test2 = function () {
                 $scope.testy.imgSrc2 = 'images/playtime/IMG_1129.JPG?w=320';
+            };
+            
+            $scope.test3 = function () {
+                $scope.testy.imgSrc3 = 'images/playtime/IMG_1129.JPG?w=720&crop=1200,800,3150,1600';
+            };
+            
+            $scope.test4 = function () {
+                $scope.testy.imgSrc4 = 'images/playtime/IMG_1129.JPG?w=720&crop=1200,800,' + $scope.coords.yCoord + ',' + $scope.coords.xCoord;
             };
             
             PageFactory.setTitle('Playtime | Gareth Hughes');

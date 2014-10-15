@@ -42,4 +42,23 @@ block playtime-item
     .image-loader-320
         img(ng-src='{{testy.imgSrc2}}')
     p No problem, we'll just load up an even smaller version!
+    p
+        | So far so good, but I can't really see much detail
+        | on the image. Who is that strapping young cyclist
+        | in the middle of the group for example?
+    button(ng-click='test3()') Click to load image
+    .image-loader-720
+        img(ng-src='{{testy.imgSrc3}}')
+    p Wiggo!
+    p
+        | But lets say you want to get reallllly fancy. How about
+        | you choose what we see?
+    input(type='text', ng-model='coords.xCoord', placeholder='x')
+    input(type='text', ng-model='coords.yCoord', placeholder='y')
+    button(ng-click='test4()') Click to load image
+    .image-loader-720
+        img(ng-src='{{testy.imgSrc4}}')
+    p
+        | Not fancy enough for you? Why not change the coordinates
+        | again and click the load image button a few more times!
     
