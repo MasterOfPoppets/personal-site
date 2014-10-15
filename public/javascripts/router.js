@@ -4,7 +4,7 @@
     'use strict';
     
     var router = require('express').Router(),
-        gm = require('gm').subClass({imageMagick: true});
+        gm = require('gm');
     
     router.use(function (req, res, next) {
         console.log(req.method, req.url);
