@@ -30,7 +30,7 @@
                     templateUrl: function (params) {
                         return 'partials/playtime/' + params.playtimeItem;
                     },
-                    controller: 'PlaytimeCtrl'
+                    controller: 'PlaytimeItemCtrl'
                 })
                 .when('/blog', {
                     templateUrl: 'partials/blog',

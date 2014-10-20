@@ -5,31 +5,27 @@
     angular.module('GHFactories', [])
     
         .factory('PageFactory', function () {
-            var title = 'Gareth Hughes';
+            var page = {
+                showExpandedItem: false,
+                title: 'Gareth Hughes'
+            };
         
             return {
+                newPage: function (title) {
+                    page.showExpandedItem = false;
+                    page.title = title;
+                },
+                
+                showExpandedItem: function () {
+                    return page.showExpandedItem;
+                },
+                
+                setShowExpandedItem: function (showExpandedItem) {
+                    page.showExpandedItem = showExpandedItem;
+                },
+                
                 title: function () {
-                    return title;
-                },
-                
-                setTitle: function (newTitle) {
-                    title = newTitle;
-                }
-            };
-        })
-    
-        .factory('ModelService', function () {
-            var model = {
-                showPortfolioItem: false
-            };
-        
-            return {
-                showPortfolioItem: function () {
-                    return model.showPortfolioItem;
-                },
-                
-                setShowPortfolioItem: function (show) {
-                    model.showPortfolioItem = show;
+                    return page.title;
                 }
             };
         });

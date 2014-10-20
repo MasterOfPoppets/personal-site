@@ -7,12 +7,12 @@ block main-content
     section#playtime-items
         .row
             .col-sm-4
-                a(ng-href='/playtime/dynamic-image-system') DIS
+                a(ng-href='/playtime/dynamic-image-system') Dynamic Imaging System
             .col-sm-4
                 a(ng-href='/playtime/test') Test
             .col-sm-4
                 a(ng-href='/playtime/test') Test
-    section#playtime-item-detail
+    section#playtime-item-detail(ng-show='isShowPlaytimeItem()')
         .row
             .col-sm-12
                 block playtime-item

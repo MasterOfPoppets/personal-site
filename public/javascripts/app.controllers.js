@@ -12,22 +12,26 @@
             });
         }])
     
-        .controller('BlogCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {
-            PageFactory.setTitle('Blog | Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+        .controller('BlogCtrl', ['PageFactory', function (PageFactory) {
+            PageFactory.newPage('Blog | Gareth Hughes');
         }])
     
-        .controller('ContactCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {
-            PageFactory.setTitle('Contact | Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+        .controller('ContactCtrl', ['PageFactory', function (PageFactory) {
+            PageFactory.newPage('Contact | Gareth Hughes');
         }])
     
-        .controller('HomeCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {
-            PageFactory.setTitle('Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+        .controller('HomeCtrl', ['PageFactory', function (PageFactory) {
+            PageFactory.newPage('Gareth Hughes');
         }])
     
-        .controller('PlaytimeCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
+        .controller('PlaytimeCtrl', ['$scope', 'PageFactory', function ($scope, PageFactory) {
+            $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
+           
+            PageFactory.newPage('Playtime | Gareth Hughes');
+        }])
+    
+        .controller('PlaytimeItemCtrl', ['$scope', 'PageFactory', function ($scope, PageFactory) {
+            $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
             $scope.coords = {
                 xCoord: 1600,
                 yCoord: 3150
@@ -55,26 +59,24 @@
                 $scope.testy.imgSrc4 = 'images/playtime/IMG_1129.JPG?w=720&crop=1200,800,' + $scope.coords.yCoord + ',' + $scope.coords.xCoord;
             };
             
-            PageFactory.setTitle('Playtime | Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+            PageFactory.newPage('Playtime | Gareth Hughes');
+            PageFactory.setShowExpandedItem(true);
         }])
     
-        .controller('PortfolioCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
-            $scope.isShowPortfolioItem = ModelService.showPortfolioItem;
+        .controller('PortfolioCtrl', ['$scope', 'PageFactory', function ($scope, PageFactory) {
+            $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
             
-            PageFactory.setTitle('Portfolio | Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+            PageFactory.newPage('Portfolio | Gareth Hughes');
         }])
     
-        .controller('PortfolioItemCtrl', ['$scope', 'ModelService', 'PageFactory', function ($scope, ModelService, PageFactory) {
-            $scope.isShowPortfolioItem = ModelService.showPortfolioItem;
+        .controller('PortfolioItemCtrl', ['$scope', 'PageFactory', function ($scope, PageFactory) {
+            $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
             
-            PageFactory.setTitle('Portfolio | Gareth Hughes');
-            ModelService.setShowPortfolioItem(true);
+            PageFactory.newPage('Portfolio | Gareth Hughes');
+            PageFactory.setShowExpandedItem(true);
         }])
     
-        .controller('SkillsCtrl', ['ModelService', 'PageFactory', function (ModelService, PageFactory) {
-            PageFactory.setTitle('Skills | Gareth Hughes');
-            ModelService.setShowPortfolioItem(false);
+        .controller('SkillsCtrl', ['PageFactory', function (PageFactory) {
+            PageFactory.newPage('Skills | Gareth Hughes');
         }]);
 }());
