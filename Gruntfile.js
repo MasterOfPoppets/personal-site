@@ -8,9 +8,6 @@
         grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
             uglify: {
-                options: {
-                    mangle: false
-                },
                 my_target: {
                     files: {
                         'public/javascripts/gh.min.js': [
