@@ -1,4 +1,5 @@
-GitHub stored Markdown for Node.js blogging
-===========================================
+:markdown
+  GitHub stored Markdown for Node.js blogging
+  ===========================================
 
-This is just a test to see what is possible.
+  This is just a test to see what is possible.
