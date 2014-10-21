@@ -23,9 +23,16 @@
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.use(stylus.middleware({
-        src: __dirname + '/public',
+        src: __dirname + '/build',
+        dest: __dirname + '/public',
         compile: compile
     }));
+    
+    // Logging middleware
+    app.use('/', function (req, res, next) {
+        console.log(req.method, req.url);
+        next();
+    });
     
     // General
     app.get('/', router.index);

@@ -11,9 +11,11 @@
                 my_target: {
                     files: {
                         'public/javascripts/gh.min.js': [
-                            'public/javascripts/app.controllers.js',
-                            'public/javascripts/app.factories.js',
-                            'public/javascripts/app.js'
+                            'build/javascripts/angular-lib/angular.js',
+                            'build/javascripts/angular-lib/angular-route.js',
+                            'build/javascripts/app.controllers.js',
+                            'build/javascripts/app.factories.js',
+                            'build/javascripts/app.js'
                         ]
                     }
                 }
