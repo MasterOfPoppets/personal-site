@@ -5,7 +5,7 @@
     
     exports.loadPartial = function (req, res) {
         res.render(
-            'partials/' + req.params.name
+            'partials/' + req.params.section
         );
     };
     

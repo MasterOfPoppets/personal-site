@@ -7,6 +7,7 @@
         app = express(),
         router = require('./routes/router'),
         images = require('./routes/images'),
+        blog = require('./routes/blog'),
         stylus = require('stylus'),
         nib = require('nib'),
         port = process.env.PORT || 3000;
@@ -38,8 +39,12 @@
     app.get('/', router.index);
     app.get('/images/:section/:img', images.loadImage);
     
+    // Blog
+    app.get('/partials/blog', blog.loadAll);
+    app.get('/partials/blog/:blogItem', blog.test);
+    
     // Partials
-    app.get('/partials/:name', router.loadPartial);
+    app.get('/partials/:section', router.loadPartial);
     app.get('/partials/:section/:item', router.loadPartialItem);
     
     // Misc.

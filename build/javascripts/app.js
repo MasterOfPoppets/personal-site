@@ -36,6 +36,12 @@
                     templateUrl: 'partials/blog',
                     controller: 'BlogCtrl'
                 })
+                .when('/blog/:blogItem', {
+                    templateUrl: function (params) {
+                        return 'partials/blog/' + params.blogItem;
+                    },
+                    controller: 'BlogCtrl'
+                })
                 .when('/contact', {
                     templateUrl: 'partials/contact',
                     controller: 'ContactCtrl'

@@ -1,4 +1,11 @@
 extends partialLayout
 block main-content
-    p
-        | This is my experimental blog page!
+    ul
+        each val in posts
+            li
+                h2
+                    -var blogEntry = val.contentDir
+                    a(ng-href='/blog/' + blogEntry)= val.title
+                p= val.description
+                p.pull-right= val.date
+            
