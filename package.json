@@ -17,7 +17,6 @@
     "karma-jasmine": "^0.1.5"
   },
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "grunt"
+    "start": "node server.js"
   }
 }
