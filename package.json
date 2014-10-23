@@ -4,6 +4,7 @@
   "private": "true",
   "dependencies": {
     "express": "^4.8.7",
+    "firebase": "^1.1.2",
     "gm": "^1.16.0",
     "jade": "*",
     "marked": "^0.3.2",

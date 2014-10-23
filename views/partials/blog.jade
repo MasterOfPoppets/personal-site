@@ -4,7 +4,7 @@ block main-content
         each val in posts
             li
                 h2
-                    -var blogEntry = val.contentDir
+                    -var blogEntry = val.url
                     a(ng-href='/blog/' + blogEntry)= val.title
                 p= val.description
                 p.pull-right= val.date

@@ -2,7 +2,10 @@
 
 (function () {
     'use strict';
-    var fs = require('fs');
+    var fs = require('fs'),
+        md = require('marked'),
+        Firebase = require('firebase'),
+        fb = new Firebase('https://fiery-heat-3490.firebaseio.com/');
     
     function getDirectories(dir) {
         var filePath;
@@ -10,6 +13,12 @@
         return fs.readdirSync(dir).filter(function (file) {
             filePath = dir + '/' + file;
             return fs.statSync(filePath).isDirectory();
+        });
+    }
+    
+    function getBlogEntries(callback) {
+        fb.child('blogEntries').once('value', function (snapshot) {
+            callback(snapshot.val());
         });
     }
     
@@ -21,32 +30,42 @@
     
     exports.loadAll = function (req, res) {
         var i,
-            postDirs = getDirectories('./content'),
-            posts = [],
-            postJSON = '';
+            blogEntryKeys = [],
+            posts = [];
         
-        for (i = 0; i < postDirs.length; i = i + 1) {
-            postJSON = getPostJSON(postDirs[i]);
-            posts.push({
-                contentDir: postDirs[i],
-                title: postJSON.title,
-                date: postJSON.date,
-                description: postJSON.description,
-                post: fs.readFileSync('./content/' + postDirs[i] + '/full.jade')
-            });
-        }
-        
-        res.render(
-            'partials/blog',
-            {
-                posts: posts
+        // Get blog entries, providing a callback to render the jade template
+        // with meta information when they are returned by Firebase.
+        getBlogEntries(function (blogEntries) {
+            blogEntryKeys = Object.keys(blogEntries);
+            for (i = 0; i < blogEntryKeys.length; i = i + 1) {
+                posts.push({
+                    url: blogEntryKeys[i],
+                    title: blogEntries[blogEntryKeys[i]].title,
+                    date: blogEntries[blogEntryKeys[i]].date
+                });
             }
-        );
+            
+            res.render(
+                'partials/blog',
+                {
+                    posts: posts
+                }
+            );
+        });
     };
     
     exports.test = function (req, res) {
-        res.render(
-            '../content/' + req.params.blogItem + '/full'
-        );
+        var blobby = '';
+        fb.child('blogEntries').child(req.params.blogItem).on('value', function (snapshot) {
+            console.log(snapshot.val());
+            blobby = snapshot.val().post;
+            res.render(
+                'partials/blogEntry',
+                {
+                    md: md,
+                    post: blobby
+                }
+            );
+        });
     };
 }());
