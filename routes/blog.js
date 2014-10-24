@@ -14,9 +14,9 @@
     });
   }
 
-  function getBlogEntries(callback) {
+  function getBlogEntries(onGetBlogEntries) {
     fb.child('blogEntries').once('value', function (snapshot) {
-      callback(snapshot.val());
+      onGetBlogEntries(snapshot.val());
     });
   }
 
@@ -33,7 +33,7 @@
 
     // Get blog entries, providing a callback to render the jade template
     // with meta information when they are returned by Firebase.
-    getBlogEntries(function (blogEntries) {
+    getBlogEntries(function onGetBlogEntries(blogEntries) {
       blogEntryKeys = Object.keys(blogEntries);
       for (i = 0; i < blogEntryKeys.length; i = i + 1) {
         posts.push(
@@ -54,7 +54,6 @@
       , blogEntries = fb.child('blogEntries');
     
     blogEntries.child(req.params.blogItem).on('value', function (snapshot) {
-      console.log(snapshot.val());
       blobby = snapshot.val().post;
       res.render('partials/blogEntry', { md: md, post: blobby });
     });
