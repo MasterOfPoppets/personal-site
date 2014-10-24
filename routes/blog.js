@@ -45,7 +45,7 @@
         );
       }
 
-      res.render('partials/blog', { posts: posts });
+      res.render('partials/blog', { md: md, posts: posts });
     });
   };
 

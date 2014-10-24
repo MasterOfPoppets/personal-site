@@ -6,5 +6,5 @@ block main-content
         h2
           -var blogEntry = val.url
           a(ng-href='/blog/' + blogEntry)= val.title
-        p= val.stub
+        != md(val.stub)
         p.pull-right= val.date
