@@ -1,26 +1,26 @@
 doctype
 html(ng-app='GHApp' ng-controller='GHCtrl')
-    head
-        title(ng-bind='PageFactory.title()')
-        base(href='/')
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
-        script(src='/javascripts/gh.min.js')
-    body
-        header
-            h1.pull-left Gareth Hughes
-            #social-links.pull-right
-                ul
-                    li(ng-repeat='socialLink in socialLinks')
-                        a(target='_blank', href='{{ socialLink.link }}')
-                            i.fa(class='{{ socialLink.icon }}')
-            .clearfix
-            .separator
-            nav.pull-right
-                ul
-                    li(ng-repeat='siteLink in siteLinks')
-                        a(href='{{ siteLink.link }}') {{ siteLink.name }}
-            .clearfix
-        .container(ng-view)
-        footer
-            p Running on node.js with Express, Jade and Stylus
+  head
+    title(ng-bind='PageFactory.title()')
+    base(href='/')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+    script(src='/javascripts/gh.min.js')
+  body
+    header
+      h1.pull-left Gareth Hughes
+      #social-links.pull-right
+        ul
+          li(ng-repeat='socialLink in socialLinks')
+            a(target='_blank', href='{{ socialLink.link }}')
+              i.fa(class='{{ socialLink.icon }}')
+      .clearfix
+      .separator
+      nav.pull-right
+        ul
+          li(ng-repeat='siteLink in siteLinks')
+            a(href='{{ siteLink.link }}') {{ siteLink.name }}
+      .clearfix
+    .container(ng-view)
+    footer
+      p Running on node.js with Express, Jade and Stylus
