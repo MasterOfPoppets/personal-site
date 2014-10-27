@@ -4,7 +4,7 @@
       <a ng-href='/blog/{{post.url}}'>{{ post.title }}</a>
     </h2>
     <p>
-      marked({{ post.post }})
+      <markdown ng-model="post.stub"></markdown>
     </p>
     <p class="pull-right">
       {{ post.date }}

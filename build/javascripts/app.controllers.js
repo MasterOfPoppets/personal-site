@@ -49,6 +49,10 @@
         };
         
         PageFactory.newPage('Blog | Gareth Hughes');
+        
+        $scope.md = function (markdownText) {
+          return marked(markdownText); 
+        };
     }])
   
     .directive('blogTest', function () {
@@ -58,6 +62,19 @@
         controller: 'BlogCtrl'
       };
     })
+  
+    .directive('markdown', ['$compile', function ($compile) {
+      return {
+        restrict: 'E',
+        require: 'ngModel',
+        link: function ($scope, $elem, $attrs, ngModel) {          
+          ngModel.$render = function () {
+            var html = marked(ngModel.$viewValue);
+            $elem.html(html);
+          };
+        }
+      };
+    }])
 
     .controller('ContactCtrl', ['PageFactory', function (PageFactory) {
       PageFactory.newPage('Contact | Gareth Hughes');
