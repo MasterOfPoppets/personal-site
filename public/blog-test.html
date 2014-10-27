@@ -1,0 +1,13 @@
+<ul>
+  <li ng-repeat="post in model.posts">
+    <h2>
+      <a ng-href='/blog/{{post.url}}'>{{ post.title }}</a>
+    </h2>
+    <p>
+      marked({{ post.post }})
+    </p>
+    <p class="pull-right">
+      {{ post.date }}
+    </p>
+  </li>
+</ul>

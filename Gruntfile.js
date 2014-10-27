@@ -4,12 +4,16 @@
     // Project configuration.
     grunt.initConfig(
       { pkg: grunt.file.readJSON('package.json')
-      , uglify: {
-        my_target: {
+      , uglify: 
+        { options: {
+          mangle: false
+          }
+        , my_target: {
           files: {
             'public/javascripts/gh.min.js': 
-              [ 'build/javascripts/angular-lib/angular.js'
-              , 'build/javascripts/angular-lib/angular-route.js'
+              [ 'build/javascripts/lib/angular/angular.js'
+              , 'build/javascripts/lib/angular/angular-route.js'
+              , 'build/javascripts/lib/marked/marked.js'
               , 'build/javascripts/app.controllers.js'
               , 'build/javascripts/app.factories.js'
               , 'build/javascripts/app.js'
