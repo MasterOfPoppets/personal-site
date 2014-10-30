@@ -1,3 +1,7 @@
-extends partialLayout
+extends content
 block main-content
-  markdown(ng-model='model.post.post')
+  article#blog-entry
+    h1#blog-entry-title {{ model.post.title }}
+    span#blog-entry-date
+      i.fa.fa-clock-o {{ model.post.date }}
+    markdown(ng-model='model.post.post')

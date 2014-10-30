@@ -17,7 +17,6 @@
           FirebloggerPostModel: FirebloggerPostModel,
           
           getPost: function (postUrl) {
-            console.log('getting post');
             fbBlogEntries.child(postUrl).once('value', function (snapshot) {
               $timeout(function () {
                 FirebloggerPostModel.post = snapshot.val();
