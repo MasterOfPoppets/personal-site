@@ -1,11 +1,12 @@
 (function () {
   'use strict';
 
-  var gm = require('gm');
+  var gm = require('gm'),
+      IMAGES_DIR = './public/images/';
 
   exports.loadImage = function (req, res) {
-    var img = gm('./public/images/' + req.params.section + '/' + req.params.img)
-      , split = [];
+    var img = gm(IMAGES_DIR + req.params.section + '/' + req.params.img),
+        split = [];
 
     res.set('Content-Type', 'image/jpeg');
 
