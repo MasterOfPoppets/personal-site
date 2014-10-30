@@ -1,14 +1,13 @@
 (function () {
   'use strict';
 
-  var express = require('express')
-    , app = express()
-    , router = require('./routes/router')
-    , images = require('./routes/images')
-    , blog = require('./routes/blog')
-    , stylus = require('stylus')
-    , nib = require('nib')
-    , port = process.env.PORT || 3000;
+  var express = require('express'),
+      app = express(),
+      router = require('./routes/router'),
+      images = require('./routes/images'),
+      stylus = require('stylus'),
+      nib = require('nib'),
+      port = process.env.PORT || 3000;
     
   // Special Stylus compile
   function compile(str, path) {
@@ -22,9 +21,10 @@
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(stylus.middleware(
-    { src: __dirname + '/build'
-    , dest: __dirname + '/public'
-    , compile: compile
+    {
+      src: __dirname + '/build',
+      dest: __dirname + '/public',
+      compile: compile
     }
   ));
     
@@ -39,8 +39,7 @@
   app.get('/images/:section/:img', images.loadImage);
     
   // Blog
-  app.get('/partials/blog', blog.loadAll);
-  app.get('/partials/blog/:blogItem', blog.test);
+  app.get('/partials/blog/:blogItem', router.loadBlogEntry);
 
   // Partials
   app.get('/partials/:section', router.loadPartial);

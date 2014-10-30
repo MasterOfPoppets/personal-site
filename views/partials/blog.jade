@@ -1,3 +1,8 @@
 extends partialLayout
 block main-content
-  blog-test
+  ul
+    li(ng-repeat='post in model.posts')
+      h2
+        a(ng-href='/blog/{{post.url}}') {{ post.title }}
+      markdown(ng-model='post.stub')
+      .pull-right {{ post.date }}

@@ -1,5 +1,4 @@
 {
   "node": true,
-  "laxcomma": true,
   "maxlen": 80
 }

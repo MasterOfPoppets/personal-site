@@ -2,78 +2,30 @@
 
 (function () {
   'use strict';
-  angular.module('GHControllers', [])
-  
-    .value('fb', new Firebase("https://fiery-heat-3490.firebaseio.com/"))
+  angular.module('GHControllers', ['gh.fireblogger'])
 
-    .controller('GHCtrl', 
-      [ '$scope'
-      , '$http'
-      , 'PageFactory'
-      , 'Firebaser'
-      , function ($scope, $http, PageFactory, Firebaser) {
+    .controller('GHCtrl', [
+      '$scope', '$http', 'PageFactory', 'Fireblogger', 
+      function ($scope, $http, PageFactory, Fireblogger) {
         $scope.PageFactory = PageFactory;
+        
         $http.get('/config.json').success(function (data) {
           $scope.socialLinks = data.socialLinks;
           $scope.siteLinks = data.siteLinks;
         });
-        Firebaser.getBlogEntries();
-    }])
-  
-    .factory('Firebaser', 
-      [ 'fb'
-      , '$timeout'
-      , function (fb, $timeout) {
-        var posts = [];
-
-        return {
-          getPosts: posts,
-
-          getBlogEntries: function () {
-            fb.child('blogEntries').on('child_added', function (snapshot) {
-              $timeout(function () {
-                posts.push(snapshot.val());
-              });
-            });
-          }
-        };
+        Fireblogger.loadAllPosts();
     }])
 
-    .controller('BlogCtrl', 
-      [ '$scope'
-      , 'PageFactory'
-      , 'Firebaser'
-      , function ($scope, PageFactory, Firebaser) {
-        $scope.model = {
-          posts: Firebaser.getPosts
-        };
+    .controller('BlogCtrl', [
+      '$scope', 'PageFactory', 'Fireblogger', '$routeParams',
+      function ($scope, PageFactory, Fireblogger, $routeParams) {
+        $scope.model = Fireblogger.FirebloggerPostModel;
+        
+        if ($routeParams.blogItem) {
+          Fireblogger.getPost($routeParams.blogItem);
+        }
         
         PageFactory.newPage('Blog | Gareth Hughes');
-        
-        $scope.md = function (markdownText) {
-          return marked(markdownText); 
-        };
-    }])
-  
-    .directive('blogTest', function () {
-      return {
-        restrict: 'E',
-        templateUrl: 'blog-test.html',
-        controller: 'BlogCtrl'
-      };
-    })
-  
-    .directive('markdown', ['$compile', function ($compile) {
-      return {
-        restrict: 'E',
-        require: 'ngModel',
-        link: function ($scope, $elem, $attrs, ngModel) {          
-          ngModel.$render = function () {
-            var html = marked(ngModel.$viewValue);
-            $elem.html(html);
-          };
-        }
-      };
     }])
 
     .controller('ContactCtrl', ['PageFactory', function (PageFactory) {
@@ -84,19 +36,17 @@
       PageFactory.newPage('Gareth Hughes');
     }])
 
-    .controller('PlaytimeCtrl', 
-      [ '$scope'
-      , 'PageFactory'
-      , function ($scope, PageFactory) {
+    .controller('PlaytimeCtrl', [
+      '$scope', 'PageFactory', 
+      function ($scope, PageFactory) {
         $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
 
         PageFactory.newPage('Playtime | Gareth Hughes');
     }])
 
-    .controller('PlaytimeItemCtrl', 
-      [ '$scope'
-      , 'PageFactory'
-      , function ($scope, PageFactory) {
+    .controller('PlaytimeItemCtrl', [
+      '$scope', 'PageFactory', 
+      function ($scope, PageFactory) {
         $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
         $scope.coords = {
           xCoord: 1600,
@@ -132,19 +82,17 @@
         PageFactory.setShowExpandedItem(true);
     }])
 
-    .controller('PortfolioCtrl', 
-      [ '$scope'
-      , 'PageFactory'
-      , function ($scope, PageFactory) {
+    .controller('PortfolioCtrl', [
+      '$scope', 'PageFactory', 
+      function ($scope, PageFactory) {
         $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
 
         PageFactory.newPage('Portfolio | Gareth Hughes');
     }])
 
-    .controller('PortfolioItemCtrl', 
-      [ '$scope'
-      , 'PageFactory'
-      , function ($scope, PageFactory) {
+    .controller('PortfolioItemCtrl', [
+      '$scope', 'PageFactory', 
+      function ($scope, PageFactory) {
         $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
 
         PageFactory.newPage('Portfolio | Gareth Hughes');
