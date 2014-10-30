@@ -1,6 +1,6 @@
 extends content
 block main-content
-  ul
+  ul#blog-posts
     li(ng-repeat='post in model.posts')
       h2
         a(ng-href='/blog/{{post.url}}') {{ post.title }}
