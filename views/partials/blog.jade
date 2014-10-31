@@ -1,8 +1,10 @@
 extends content
 block main-content
-  ul#blog-posts
-    li(ng-repeat='post in model.posts')
-      h2
+  #blog-posts
+    article.blog-entry(ng-repeat='post in model.posts')
+      h2.blog-entry-title
         a(ng-href='/blog/{{post.url}}') {{ post.title }}
       markdown(ng-model='post.stub')
-      .pull-right {{ post.date }}
+      span.blog-entry-date.pull-right
+        i.fa.fa-clock-o {{ post.date }}
+      .clearfix

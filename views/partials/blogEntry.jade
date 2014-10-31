@@ -1,7 +1,7 @@
 extends content
 block main-content
   article#blog-entry
-    h1#blog-entry-title {{ model.post.title }}
-    span#blog-entry-date
+    h1.blog-entry-title {{ model.post.title }}
+    span.blog-entry-date
       i.fa.fa-clock-o {{ model.post.date }}
     markdown(ng-model='model.post.post')
