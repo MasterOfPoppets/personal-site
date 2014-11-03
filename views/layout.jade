@@ -17,11 +17,11 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
               i.fa(class='{{ socialLink.icon }}')
       .clearfix
       .separator
-      nav.pull-right
+      nav#site-links.pull-right
         ul
           li(ng-repeat='siteLink in siteLinks')
             a(href='{{ siteLink.link }}') {{ siteLink.name }}
       .clearfix
-    .container(ng-view)
+    .angular-view(ng-view)
     footer
       p Running on node.js with Express, Jade and Stylus

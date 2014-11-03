@@ -40,18 +40,18 @@
       PageFactory.newPage('Gareth Hughes');
     }])
 
-    .controller('PlaytimeCtrl', [
+    .controller('PlayCtrl', [
       '$scope', 'PageFactory', 
       function ($scope, PageFactory) {
-        $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
+        $scope.isShowPlayItem = PageFactory.showExpandedItem;
 
-        PageFactory.newPage('Playtime | Gareth Hughes');
+        PageFactory.newPage('Play! | Gareth Hughes');
     }])
 
-    .controller('PlaytimeItemCtrl', [
+    .controller('PlayItemCtrl', [
       '$scope', 'PageFactory', 
       function ($scope, PageFactory) {
-        $scope.isShowPlaytimeItem = PageFactory.showExpandedItem;
+        $scope.isShowPlayItem = PageFactory.showExpandedItem;
         $scope.coords = {
           xCoord: 1600,
           yCoord: 3150
@@ -64,25 +64,25 @@
         };
 
         $scope.test = function () {
-          $scope.testy.imgSrc = 'images/playtime/IMG_1129.JPG?w=720';
+          $scope.testy.imgSrc = 'images/play/IMG_1129.JPG?w=720';
         };
 
         $scope.test2 = function () {
-          $scope.testy.imgSrc2 = 'images/playtime/IMG_1129.JPG?w=320';
+          $scope.testy.imgSrc2 = 'images/play/IMG_1129.JPG?w=320';
         };
 
         $scope.test3 = function () {
           $scope.testy.imgSrc3 = 
-            'images/playtime/IMG_1129.JPG?w=720&crop=1200,800,3150,1600';
+            'images/play/IMG_1129.JPG?w=720&crop=1200,800,3150,1600';
         };
 
         $scope.test4 = function () {
           $scope.testy.imgSrc4 = 
-            'images/playtime/IMG_1129.JPG?w=720&crop=1200,800,' + 
+            'images/play/IMG_1129.JPG?w=720&crop=1200,800,' + 
             $scope.coords.yCoord + ',' + $scope.coords.xCoord;
         };
 
-        PageFactory.newPage('Playtime | Gareth Hughes');
+        PageFactory.newPage('Play! | Gareth Hughes');
         PageFactory.setShowExpandedItem(true);
     }])
 

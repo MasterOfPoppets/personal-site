@@ -24,15 +24,15 @@
             },
             controller: 'PortfolioItemCtrl'
           })
-          .when('/playtime', {
-            templateUrl: 'partials/playtime',
-            controller: 'PlaytimeCtrl'
+          .when('/play', {
+            templateUrl: 'partials/play',
+            controller: 'PlayCtrl'
           })
-          .when('/playtime/:playtimeItem', {
+          .when('/play/:playItem', {
             templateUrl: function (params) {
-              return 'partials/playtime/' + params.playtimeItem;
+              return 'partials/play/' + params.playItem;
             },
-            controller: 'PlaytimeItemCtrl'
+            controller: 'PlayItemCtrl'
           })
           .when('/blog', {
             templateUrl: 'partials/blog',

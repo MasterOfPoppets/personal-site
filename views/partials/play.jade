@@ -1,0 +1,18 @@
+extends contentJumbo
+block jumbotron-content
+  h1 Play!
+    br
+    small Some cool web stuff
+block main-content
+  section#play-items
+    .row
+      .col-sm-4
+        a(ng-href='/play/dynamic-image-system') Dynamic Imaging System
+      .col-sm-4
+        a(ng-href='/play/test') Test
+      .col-sm-4
+        a(ng-href='/play/test') Test
+  section#play-item-detail(ng-show='isShowPlayItem()')
+    .row
+      .col-sm-12
+        block play-item
