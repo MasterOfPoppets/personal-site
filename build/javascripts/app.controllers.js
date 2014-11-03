@@ -7,12 +7,16 @@
     .controller('GHCtrl', [
       '$scope', '$http', 'PageFactory', 'Fireblogger', 
       function ($scope, $http, PageFactory, Fireblogger) {
+        // Set PageFactory to app-wide scope
         $scope.PageFactory = PageFactory;
         
+        // Get configuration file for links etc
         $http.get('/config.json').success(function (data) {
           $scope.socialLinks = data.socialLinks;
           $scope.siteLinks = data.siteLinks;
         });
+        
+        // Load all blog entries - maybe not the best location for this
         Fireblogger.loadAllPosts();
     }])
 
