@@ -10,20 +10,15 @@
         }, 
         my_target: {
           files: { 
-            'public/javascripts/gh.min.js': [ 
+            'public/javascripts/gh.min.js': [
               'build/javascripts/lib/angular/angular.js',
-              'build/javascripts/lib/angular/angular-route.js',
-              'build/javascripts/lib/marked/marked.js',
-              'build/javascripts/app.controllers.js',
-              'build/javascripts/app.factories.js',
-              'build/javascripts/gh.fireblogger.js',
-              'build/javascripts/app.js'
+              'build/javascripts/**/*.js'
             ]
           }
         }
       },
       watch: {
-        files: 'build/javascripts/**/*.js',
+        files: ['build/javascripts/**/*.js'],
         tasks: ['uglify']
       }
     });
