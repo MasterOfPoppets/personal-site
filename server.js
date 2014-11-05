@@ -37,6 +37,7 @@
   // General
   app.get('/', router.index);
   app.get('/images/:section/:img', images.loadImage);
+  app.get('/camera', router.camera);
     
   // Blog
   app.get('/partials/blog/:blogItem', router.loadBlogEntry);

@@ -12,6 +12,10 @@
   exports.loadBlogEntry = function (req, res) {
     res.render('partials/blogEntry');
   };
+  
+  exports.camera = function (req, res) {
+    res.render('mobCamera'); 
+  };
 
   exports.index = function (req, res) {
     res.render('layout');
