@@ -21,12 +21,12 @@
     }])
 
     .controller('BlogCtrl', [
-      '$scope', 'PageFactory', 'Fireblogger', '$routeParams',
-      function ($scope, PageFactory, Fireblogger, $routeParams) {
+      '$scope', 'PageFactory', 'Fireblogger', '$stateParams',
+      function ($scope, PageFactory, Fireblogger, $stateParams) {
         $scope.model = Fireblogger.FirebloggerPostModel;
         
-        if ($routeParams.blogItem) {
-          Fireblogger.getPost($routeParams.blogItem);
+        if ($stateParams.id) {
+          Fireblogger.getPost($stateParams.id);
         }
         
         PageFactory.newPage('Blog | Gareth Hughes');

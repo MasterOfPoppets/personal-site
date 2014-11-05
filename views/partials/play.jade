@@ -7,7 +7,7 @@ block main-content
   section#play-items
     .row
       .col-sm-4
-        a(ng-href='/play/dynamic-image-system') Dynamic Imaging System
+        a(ui-sref='.item({ id: \'dynamic-image-system\'})') Dynamic Imaging System
       .col-sm-4
         a(ng-href='/play/test') Test
       .col-sm-4
@@ -15,4 +15,4 @@ block main-content
   section#play-item-detail(ng-show='isShowPlayItem()')
     .row
       .col-sm-12
-        block play-item
+        .test(ui-view)

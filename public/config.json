@@ -5,11 +5,11 @@
     {"icon": "fa-github-alt", "link": "https://github.com/MasterOfPoppets/personal-site"}
   ],
   "siteLinks": [
-    {"name": "home", "link": "/"},
-    {"name": "skills", "link": "/skills"},
-    {"name": "portfolio", "link": "/portfolio"},
-    {"name": "play!", "link": "/play"},
-    {"name": "blog", "link": "/blog"},
-    {"name": "contact me", "link": "/contact"}
+    {"name": "home", "link": "home"},
+    {"name": "skills", "link": "skills"},
+    {"name": "portfolio", "link": "portfolio"},
+    {"name": "play!", "link": "play"},
+    {"name": "blog", "link": "blog"},
+    {"name": "contact me", "link": "contact"}
   ]
 }

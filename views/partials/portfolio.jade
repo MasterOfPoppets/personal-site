@@ -7,7 +7,7 @@ block main-content
   section#portfolio-items
     .row
       .col-sm-4
-        a(ng-href='/portfolio/gbst-syn')
+        a(ui-sref='.item({ id: \'gbst-syn\' })')
           img(src='/images/portfolio/syn-logo.png')
       .col-sm-4
         a(ng-href='/portfolio/ombudz')
@@ -18,4 +18,4 @@ block main-content
   section#portfolio-item-detail(ng-show='isShowPortfolioItem()')
     .row
       .col-sm-12
-        block portfolio-item
+        .test(ui-view)

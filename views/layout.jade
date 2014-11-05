@@ -20,7 +20,7 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
       nav#site-links.pull-right
         ul
           li(ng-repeat='siteLink in siteLinks')
-            a(href='{{ siteLink.link }}') {{ siteLink.name }}
+            a(ui-sref='{{ siteLink.link }}') {{ siteLink.name }}
       .clearfix
     .angular-view(ui-view)
     footer
