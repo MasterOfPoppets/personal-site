@@ -1,21 +1,17 @@
-extends contentJumbo
-block jumbotron-content
-  h1 Portfolio
-    br
-    small Some examples of my work
+extends content
 block main-content
   section#portfolio-items
     .row
       .col-sm-4
         a(ui-sref='.item({ id: \'gbst-syn\' })')
-          img(src='/images/portfolio/syn-logo.png')
+          img(src='/images/portfolio/syn_logo.png')
       .col-sm-4
-        a(ng-href='/portfolio/ombudz')
-          img(src='/images/portfolio/syn-logo.png')
+        a(ui-sref='.item({ id: \'ombudz\' })')
+          img(src='/images/portfolio/syn_logo.png')
       .col-sm-4
-        a(ng-href='/portfolio/ombudz')
-          img(src='/images/portfolio/syn-logo.png')
-  section#portfolio-item-detail(ng-show='isShowPortfolioItem()')
+        a(ui-sref='.item({ id: \'gbst-syn\' })')
+          img(src='/images/portfolio/syn_logo.png')
+  section#portfolio-item(ng-show='isShowPortfolioItem()')
     .row
       .col-sm-12
-        .test(ui-view)
+        article#portfolio-item-detail(ui-view)

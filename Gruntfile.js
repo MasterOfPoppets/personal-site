@@ -4,6 +4,19 @@
     // Project configuration.
     grunt.initConfig({ 
       pkg: grunt.file.readJSON('package.json'),
+      bower_concat: {
+        all: {
+          dest: 'public/javascripts/_bower.js',
+          cssDest: 'public/stylesheets/_bower.css',
+          exclude: [
+            'jquery' 
+          ],
+          mainFiles: {
+            'bootstrap': 'dist/css/bootstrap.css',
+            'marked': 'lib/marked.js'
+          }
+        }
+      },
       uglify: { 
         options: {
           mangle: false
@@ -11,7 +24,6 @@
         my_target: {
           files: { 
             'public/javascripts/gh.min.js': [
-              'build/javascripts/lib/angular/angular.js',
               'build/javascripts/**/*.js'
             ]
           }
@@ -22,6 +34,9 @@
         tasks: ['uglify']
       }
     });
+
+    // Load the plugin that provides the "bower concat" task.
+    grunt.loadNpmTasks('grunt-bower-concat');
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');

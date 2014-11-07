@@ -3,9 +3,10 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
   head
     title(ng-bind='PageFactory.title()')
     base(href='/')
+    link(rel='stylesheet', href='/stylesheets/_bower.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
-    script(src='https://cdn.firebase.com/js/client/1.0.21/firebase.js')
+    script(src='/javascripts/_bower.js')
     script(src='/javascripts/gh.min.js')
   body
     header
@@ -13,7 +14,7 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
       #social-links.pull-right
         ul
           li(ng-repeat='socialLink in socialLinks')
-            a(target='_blank', href='{{ socialLink.link }}')
+            a(href='{{ socialLink.link }}')
               i.fa(class='{{ socialLink.icon }}')
       .clearfix
       .separator
