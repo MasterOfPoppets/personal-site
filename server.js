@@ -3,6 +3,8 @@
 
   var express = require('express'),
       app = express(),
+      bodyParser = require('body-parser'),
+      urlEncodedParser = bodyParser.json(),
       router = require('./routes/router'),
       images = require('./routes/images'),
       stylus = require('stylus'),
@@ -38,6 +40,7 @@
   app.get('/', router.index);
   app.get('/images/:section/:img', images.loadImage);
   app.get('/camera', router.camera);
+  app.post('/contact', urlEncodedParser, router.contact);
     
   // Blog
   app.get('/partials/blog/:blogItem', router.loadBlogEntry);

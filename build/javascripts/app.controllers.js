@@ -2,7 +2,7 @@
 
 (function () {
   'use strict';
-  angular.module('GHControllers', ['gh.fireblogger'])
+  angular.module('GHControllers', ['gh.controller.contact', 'gh.fireblogger'])
 
     .controller('GHCtrl', [
       '$scope', '$http', 'PageFactory', 'Fireblogger', 
@@ -30,10 +30,6 @@
         }
         
         PageFactory.newPage('Blog | Gareth Hughes');
-    }])
-
-    .controller('ContactCtrl', ['PageFactory', function (PageFactory) {
-      PageFactory.newPage('Contact | Gareth Hughes');
     }])
 
     .controller('HomeCtrl', ['PageFactory', function (PageFactory) {

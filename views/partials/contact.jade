@@ -1,4 +1,30 @@
 extends content
 block main-content
-  p
-    | This is a contact page!
+  .row
+    .col-sm-12
+      p
+        | Just want to say hi? The best place to reach me is via Twitter
+        | via my handle <a href='https://twitter.com/garethdhughes'>@garethdhughes</a>.
+      p
+        | For more information about the services I can offer, or to discuss working
+        | on a project with me, then just fill out the form below and I shall aim to
+        | reply promptly - I'm usually pretty quick!
+  .row
+    .col-sm-12
+      form(ng-submit='submit(contactForm)' id='contact-form' method='post' role='form' name='contactForm' novalidate)
+        .form-group
+          label(for='name') Name
+          input.form-control(ng-model='formData.name' type='text' name='name' required)
+        .form-group
+          label(for='email') Email
+          input.form-control(ng-model='formData.email' type='email' name='email' required)
+        .form-group
+          label(for='subject') Subject
+          input.form-control(ng-model='formData.subject' type='text' name='subject' required)
+        .form-group
+          label(for='message') Message
+          textarea.form-control(ng-model='formData.message' type='text' name='message' rows='5' required)
+        .form-group
+          label(for='voight_kampff') Voight-Kampff Test
+          input.form-control(ng-model='formData.voight_kampff' type='text' name='voight_kampff' placeholder='{{ formData.vk.num1 }} + {{ formData.vk.num2 }} =' required)
+        button.btn.btn-default(type='submit') Submit!
