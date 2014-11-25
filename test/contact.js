@@ -39,6 +39,7 @@ describe('Contact', function () {
       contact.sendContactForm();
       
       sendEmailStub.called.should.be.ok;
+      sendEmailStub.restore();
     });
 
     afterEach(function () {
@@ -55,28 +56,19 @@ describe('Contact', function () {
   });
 
   describe('#voightKampffTest', function () {
-    it('should return true if the users answer is correct', function () {
+    it('should check if the users answer is correct', function () {
       var contact = new Contact({
         vkQuestion: {
           num1: '2',
           num2: '2'
-        },
-        vkAnswer: '4'
+        }
       });
-
-      contact.voightKampffTest(this.payload).should.be.true;
-    });
-
-    it('should return false if the users answer is incorrect', function () {
-      var contact = new Contact({
-        vkQuestion: {
-          num1: '2',
-          num2: '2'
-        },
-        vkAnswer: '42'
-      });
-
-      contact.voightKampffTest(this.payload).should.be.false;
+      
+      contact.payload.vkAnswer = '4';
+      contact.voightKampffTest().should.be.true;
+      
+      contact.payload.vkAnswer = '42';
+      contact.voightKampffTest().should.be.false;
     });
   });
 });

@@ -8,11 +8,11 @@
   };
 
   exports.loadPartialItem = function (req, res) {
-    res.render('partials/' + req.params.section + '/' + req.params.item);
-  };
-  
-  exports.loadBlogEntry = function (req, res) {
-    res.render('partials/blogEntry');
+    if (req.params.section === 'blog') {
+      res.render('partials/blogEntry'); 
+    } else {
+      res.render('partials/' + req.params.section + '/' + req.params.item);
+    }
   };
   
   exports.contact = function (req, res) {

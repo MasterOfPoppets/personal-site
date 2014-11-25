@@ -45,7 +45,6 @@
   // Partials
   app.get('/partials/:section', router.loadPartial);
   app.get('/partials/:section/:item', router.loadPartialItem);
-  app.get('/partials/blog/:blogItem', router.loadBlogEntry);
     
   // Misc.
   app.use(express.static(__dirname + '/public'));
