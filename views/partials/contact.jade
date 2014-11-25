@@ -26,5 +26,5 @@ block main-content
           textarea.form-control(ng-model='formData.message' type='text' name='message' rows='5' required)
         .form-group
           label(for='voight_kampff') Voight-Kampff Test
-          input.form-control(ng-model='formData.voight_kampff' type='text' name='voight_kampff' placeholder='{{ formData.vk.num1 }} + {{ formData.vk.num2 }} =' required)
-        button.btn.btn-default(type='submit') Submit!
+          input.form-control(ng-model='formData.vkAnswer' type='text' name='voight_kampff_test' placeholder='{{ formData.vkQuestion.num1 }} + {{ formData.vkQuestion.num2 }} =' required)
+        button.btn.btn-default(type='submit' ng-disabled='!contactForm.$valid') Submit!

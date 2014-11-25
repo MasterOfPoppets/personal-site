@@ -10,7 +10,7 @@
       'PageFactory', 
       function ($scope, $http, PageFactory) {
         $scope.formData = {
-          vk: {
+          vkQuestion: {
             num1: Math.floor((Math.random() * 10) + 1),
             num2: Math.floor((Math.random() * 10) + 1)
           }

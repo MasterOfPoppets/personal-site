@@ -1,13 +1,7 @@
 (function () {
   'use strict';
   
-  function voight_kampff(vkVars, vkAnswer) {
-    var num1 = parseInt(vkVars.num1),
-        num2 = parseInt(vkVars.num2),
-        ans = parseInt(vkAnswer);
-    
-    return num1 + num2 === ans;
-  }
+  var Contact = require('../lib/contact');
 
   exports.loadPartial = function (req, res) {
     res.render('partials/' + req.params.section);
@@ -21,28 +15,24 @@
     res.render('partials/blogEntry');
   };
   
-  exports.camera = function (req, res) {
-    res.render('mobCamera'); 
-  };
-  
   exports.contact = function (req, res) {
-    var nodeMailer = require('nodemailer'),
-        transporter = nodeMailer.createTransport();
+    var contact = new Contact(req.body);
     
-    if (voight_kampff(req.body.vk, req.body.voight_kampff)) {
-      console.log('Handling contact request');
-      
-      transporter.sendMail({
-        from: 'noreply@garethhughes.com',
-        to: 'gurrkin@gmail.com',
-        subject: req.body.subject,
-        text: req.body.message
+    contact.once('error', function (errorType, errors) {
+      res.json({
+        success: false,
+        errorType: errorType,
+        errors: errors
       });
-    } else {
-      console.log('REPLICANT!');
-    }
+    });
     
-    res.end();
+    contact.once('success', function (info) {
+      res.json({
+        success: true
+      });
+    });
+    
+    contact.sendContactForm(req.body);
   };
 
   exports.index = function (req, res) {

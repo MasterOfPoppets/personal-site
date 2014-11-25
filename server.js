@@ -4,7 +4,6 @@
   var express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
-      urlEncodedParser = bodyParser.json(),
       router = require('./routes/router'),
       images = require('./routes/images'),
       stylus = require('stylus'),
@@ -38,16 +37,15 @@
     
   // General
   app.get('/', router.index);
+  
+  // API
   app.get('/images/:section/:img', images.loadImage);
-  app.get('/camera', router.camera);
-  app.post('/contact', urlEncodedParser, router.contact);
-    
-  // Blog
-  app.get('/partials/blog/:blogItem', router.loadBlogEntry);
+  app.post('/contact', bodyParser.json(), router.contact);
 
   // Partials
   app.get('/partials/:section', router.loadPartial);
   app.get('/partials/:section/:item', router.loadPartialItem);
+  app.get('/partials/blog/:blogItem', router.loadBlogEntry);
     
   // Misc.
   app.use(express.static(__dirname + '/public'));
