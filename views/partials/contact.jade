@@ -11,7 +11,7 @@ block main-content
         | reply promptly - I'm usually pretty quick!
   .row
     .col-sm-12
-      form(ng-submit='submit(contactForm)' id='contact-form' method='post' role='form' name='contactForm' novalidate)
+      form(ng-submit='submit(contactForm)' id='contact-form' method='POST' role='form' name='contactForm' novalidate)
         .form-group
           label(for='name') Name
           input.form-control(ng-model='formData.name' type='text' name='name' required)
@@ -27,4 +27,6 @@ block main-content
         .form-group
           label(for='voight_kampff') Voight-Kampff Test
           input.form-control(ng-model='formData.vkAnswer' type='text' name='voight_kampff_test' placeholder='{{ formData.vkQuestion.num1 }} + {{ formData.vkQuestion.num2 }} =' required)
+        .form-group
+          != recaptcha_form
         button.btn.btn-default(type='submit' ng-disabled='!contactForm.$valid') Submit!

@@ -56,6 +56,10 @@ describe('Contact', function () {
   });
 
   describe('#voightKampffTest', function () {
+    it('should fail if no question/answer provided', function () {
+      var contact = new Contact();
+    });
+    
     it('should check if the users answer is correct', function () {
       var contact = new Contact({
         vkQuestion: {

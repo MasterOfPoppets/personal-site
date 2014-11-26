@@ -5,7 +5,7 @@
       app = express(),
       bodyParser = require('body-parser'),
       router = require('./routes/router'),
-      images = require('./routes/images'),
+      api = require('./routes/api'),
       stylus = require('stylus'),
       nib = require('nib'),
       port = process.env.PORT || 3000;
@@ -39,11 +39,13 @@
   app.get('/', router.index);
   
   // API
-  app.get('/images/:section/:img', images.loadImage);
-  app.post('/contact', bodyParser.json(), router.contact);
+  app.get('/images/:section/:img', api.loadImage);
+  app.post('/contact', bodyParser.json(), api.contact);
 
   // Partials
+  app.get('/partials/contact', router.contact);
   app.get('/partials/:section', router.loadPartial);
+  app.get('/partials/blog/:blogId', router.blogEntry);
   app.get('/partials/:section/:item', router.loadPartialItem);
     
   // Misc.

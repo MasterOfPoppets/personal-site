@@ -1,38 +1,30 @@
 (function () {
   'use strict';
   
-  var Contact = require('../lib/contact');
+  var Contact = require('../lib/contact'),
+      Recaptcha = require('recaptcha').Recaptcha,
+      keys = require('../data/recaptcha.json');
+  
+  exports.blogEntry = function (req, res) {
+    res.render('partials/blogEntry'); 
+  };
+  
+  exports.contact = function (req, res) {
+    var PUBLIC_KEY = process.env.RECAPTCHA_PUBLIC_KEY || keys.publickey,
+        SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY || keys.secretkey,
+        recaptcha = new Recaptcha(PUBLIC_KEY, SECRET_KEY);
+    
+    res.render('partials/contact', {
+      recaptcha_form: recaptcha.toHTML()
+    });
+  };
 
   exports.loadPartial = function (req, res) {
     res.render('partials/' + req.params.section);
   };
 
   exports.loadPartialItem = function (req, res) {
-    if (req.params.section === 'blog') {
-      res.render('partials/blogEntry'); 
-    } else {
-      res.render('partials/' + req.params.section + '/' + req.params.item);
-    }
-  };
-  
-  exports.contact = function (req, res) {
-    var contact = new Contact(req.body);
-    
-    contact.once('error', function (errorType, errors) {
-      res.json({
-        success: false,
-        errorType: errorType,
-        errors: errors
-      });
-    });
-    
-    contact.once('success', function (info) {
-      res.json({
-        success: true
-      });
-    });
-    
-    contact.sendContactForm(req.body);
+    res.render('partials/' + req.params.section + '/' + req.params.item);
   };
 
   exports.index = function (req, res) {
