@@ -26,5 +26,5 @@ block main-content
           textarea.form-control(ng-model='formData.message' type='text' name='message' rows='5' required)
         .form-group
           label(for='voight_kampff') Voight-Kampff Test
-          != recaptcha_form
+          .g-recaptcha(data-sitekey='6LcoWv4SAAAAAIOCnPmyH9N1JH0iMwMHoJ9BjUXr' name='voight_kampff')
         button.btn.btn-default(type='submit' ng-disabled='!contactForm.$valid') Submit!
