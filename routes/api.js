@@ -23,7 +23,7 @@
       });
     });
     
-    contact.sendContactForm(req.body);
+    contact.processContactForm(req.body);
   };
   
   exports.loadImage = function (req, res) {

@@ -1,4 +1,4 @@
-/*global angular*/
+/*global angular, grecaptcha*/
 
 (function () {
   'use strict';
@@ -10,22 +10,17 @@
       'PageFactory', 
       function ($scope, $http, PageFactory) {
         $scope.formData = {};
+        $scope.submitted = false;
         
         PageFactory.newPage('Contact | Gareth Hughes');
       
         $scope.submit = function(contactForm) {
-          $scope.formData.vkResponse = 
-            document.getElementById('g-recaptcha-response').value;
-          
-          if (contactForm.$valid) {
-            $http({
-              method: 'POST',
-              url: '/contact',
-              data: $scope.formData
-            });
-          } else {
-            console.log('Not valid');
-          }
+          $scope.submitted = true;
+          $http({
+            method: 'POST',
+            url: '/contact',
+            data: $scope.formData
+          });
         };
       }
     ]);

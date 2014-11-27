@@ -13,18 +13,21 @@ block main-content
     .col-sm-12
       form(ng-submit='submit(contactForm)' id='contact-form' method='POST' role='form' name='contactForm' novalidate)
         .form-group
-          label(for='name') Name
-          input.form-control(ng-model='formData.name' type='text' name='name' required)
+          label(for='enquiry_name') Name*
+          input.form-control(ng-model='formData.enquiry_name' type='text' name='enquiry_name' required)
+          span.form-validation-help(ng-show='enquiry_name_error') {{ enquiry_name_error }}
         .form-group
-          label(for='email') Email
-          input.form-control(ng-model='formData.email' type='email' name='email' required)
+          label(for='enquiry_email') Email*
+          input.form-control(ng-model='formData.enquiry_email' type='email' name='enquiry_email' required)
+          span.form-validation-help(ng-show='enquiry_email_error') {{ enquiry_email_error }}
         .form-group
-          label(for='subject') Subject
-          input.form-control(ng-model='formData.subject' type='text' name='subject' required)
+          label(for='enquiry_subject') Subject
+          input.form-control(ng-model='formData.enquiry_subject' type='text' name='enquiry_subject')
         .form-group
-          label(for='message') Message
-          textarea.form-control(ng-model='formData.message' type='text' name='message' rows='5' required)
-        .form-group
-          label(for='voight_kampff') Voight-Kampff Test
-          .g-recaptcha(data-sitekey='6LcoWv4SAAAAAIOCnPmyH9N1JH0iMwMHoJ9BjUXr' name='voight_kampff')
-        button.btn.btn-default(type='submit' ng-disabled='!contactForm.$valid') Submit!
+          label(for='enquiry_message') Message*
+          textarea.form-control(ng-model='formData.enquiry_message' type='text' name='enquiry_message' rows='5' required)
+          span.form-validation-help(ng-show='enquiry_message_error') {{ enquiry_message_error }}
+        .form-group.vkemail
+          label(for='email') Email (Voight-Kampff Test)
+          input.form-control(ng-model='formData.email' type='email' name='email')
+        button.btn.btn-info.center-block(type='submit' ng-disabled='contactForm.$invalid || submitted') Submit!
