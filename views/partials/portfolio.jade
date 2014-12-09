@@ -1,4 +1,4 @@
-extends content
+extends layouts/content
 block main-content
   section#portfolio-items
     .row
@@ -6,7 +6,7 @@ block main-content
         a(ui-sref='.item({ id: \'gbst-syn\' })')
           img(src='/images/portfolio/syn_logo.png')
       .col-sm-4
-        a(ui-sref='.item({ id: \'ombudz\' })')
+        a(ui-sref='.item({ id: \'gbst-syn\' })')
           img(src='/images/portfolio/syn_logo.png')
       .col-sm-4
         a(ui-sref='.item({ id: \'gbst-syn\' })')

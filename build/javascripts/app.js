@@ -16,11 +16,6 @@
             templateUrl: 'partials/home',
             controller: 'HomeCtrl'
           })
-          .state('camera', {
-            url: '/camera',
-            templateUrl: 'camera',
-            controller: 'HomeCtrl'
-          })
           .state('skills', {
             url: '/skills',
             templateUrl: 'partials/skills',
