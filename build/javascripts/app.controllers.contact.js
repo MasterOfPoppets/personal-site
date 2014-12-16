@@ -1,4 +1,4 @@
-/*global angular, grecaptcha*/
+/*global angular*/
 
 (function () {
   'use strict';

@@ -2,15 +2,14 @@ extends layouts/content
 block main-content
   section#portfolio-items
     .row
-      .col-sm-4
-        a(ui-sref='.item({ id: \'gbst-syn\' })')
-          img(src='/images/portfolio/syn_logo.png')
-      .col-sm-4
-        a(ui-sref='.item({ id: \'gbst-syn\' })')
-          img(src='/images/portfolio/syn_logo.png')
-      .col-sm-4
-        a(ui-sref='.item({ id: \'gbst-syn\' })')
-          img(src='/images/portfolio/syn_logo.png')
+      .col-sm-12
+        fa-app(style='height: 160px;')
+          fa-modifier
+            fa-surface(fa-background-color="'#FA5C4F'")
+              | hello world
+      //.col-sm-4(ng-repeat='portfolioLink in portfolioLinks')
+        //a(ui-sref='.item({ id: portfolioLink.link })')
+          //img(ng-src='{{ portfolioLink.image }}')
   section#portfolio-item(ng-show='isShowPortfolioItem()')
     .row
       .col-sm-12

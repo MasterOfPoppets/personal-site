@@ -3,7 +3,8 @@
 (function () {
   'use strict';
 
-  angular.module('GHApp', ['GHControllers', 'GHFactories', 'ui.router'])
+  angular.module('GHApp', [
+    'GHControllers', 'GHFactories', 'famous.angular', 'ui.router'])
   
     .config([
       '$stateProvider', '$urlRouterProvider', '$locationProvider',

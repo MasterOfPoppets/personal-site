@@ -2,7 +2,8 @@
 
 (function () {
   'use strict';
-  angular.module('GHControllers', ['gh.controller.contact', 'gh.fireblogger'])
+  angular.module('GHControllers', [
+    'gh.controller.contact', 'gh.controller.portfolio', 'gh.fireblogger'])
 
     .controller('GHCtrl', [
       '$scope', '$http', 'PageFactory', 'Fireblogger', 
@@ -79,23 +80,6 @@
         };
 
         PageFactory.newPage('Play! | Gareth Hughes');
-        PageFactory.setShowExpandedItem(true);
-    }])
-
-    .controller('PortfolioCtrl', [
-      '$scope', 'PageFactory', 
-      function ($scope, PageFactory) {
-        $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
-
-        PageFactory.newPage('Portfolio | Gareth Hughes');
-    }])
-
-    .controller('PortfolioItemCtrl', [
-      '$scope', 'PageFactory', 
-      function ($scope, PageFactory) {
-        $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
-
-        PageFactory.newPage('Portfolio | Gareth Hughes');
         PageFactory.setShowExpandedItem(true);
     }])
 

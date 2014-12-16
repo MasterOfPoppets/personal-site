@@ -3,10 +3,17 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
   head
     title(ng-bind='PageFactory.title()')
     base(href='/')
-    link(rel='stylesheet', href='/stylesheets/_bower.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+    // famo.us shims for backwards compatibility
+    script(src='http://code.famo.us/lib/functionPrototypeBind.js')
+    script(src='http://code.famo.us/lib/classList.js')
+    script(src='http://code.famo.us/lib/requestAnimationFrame.js')
+    // bower modules
+    link(rel='stylesheet' href='/stylesheets/_bower.css')
     script(src='/javascripts/_bower.js')
+    // font-awesome
+    link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
+    // app
+    link(rel='stylesheet' href='/stylesheets/style.css')
     script(src='/javascripts/gh.min.js')
   body
     header
