@@ -20,6 +20,10 @@
 img
   max-width 100%
 
+html
+body
+  height 100%
+
 body
   font-family my-serif
   background-color background-color
@@ -29,14 +33,19 @@ body
     font-size 16px
     line-height 1.6em
 
-#content .main-content
-  margin-top 60px
+#content 
+  .main-content
+    margin-top 60px
 
 #content-jumbo
   .main-content
     section
       &:first-child
         padding-top 48px
+
+.wrapper
+  min-height 100%
+  margin 0 auto -50px
 
 .main-content
   section
@@ -74,6 +83,10 @@ li
   display inline
   list-style-type none
   margin-left 25px
+
+footer 
+.push
+  height 50px
 
 footer
   text-align center

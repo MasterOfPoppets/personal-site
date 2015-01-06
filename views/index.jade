@@ -16,20 +16,22 @@ html(ng-app='GHApp' ng-controller='GHCtrl')
     link(rel='stylesheet' href='/stylesheets/style.css')
     script(src='/javascripts/gh.min.js')
   body
-    header
-      h1.pull-left gareth hughes
-      #social-links.pull-right
-        ul
-          li(ng-repeat='socialLink in socialLinks')
-            a(href='{{ socialLink.link }}')
-              i.fa(class='{{ socialLink.icon }}')
-      .clearfix
-      .separator
-      nav#site-links.pull-right
-        ul
-          li(ng-repeat='siteLink in siteLinks')
-            a(ui-sref='{{ siteLink.link }}') {{ siteLink.name }}
-      .clearfix
-    .angular-view(ui-view)
+    .wrapper
+      header
+        h1.pull-left gareth hughes
+        #social-links.pull-right
+          ul
+            li(ng-repeat='socialLink in socialLinks')
+              a(href='{{ socialLink.link }}')
+                i.fa(class='{{ socialLink.icon }}')
+        .clearfix
+        .separator
+        nav#site-links.pull-right
+          ul
+            li(ng-repeat='siteLink in siteLinks')
+              a(ui-sref='{{ siteLink.link }}') {{ siteLink.name }}
+        .clearfix
+      .content-view(ui-view)
+      .push
     footer
       p Running on node.js with Express, Jade and Stylus

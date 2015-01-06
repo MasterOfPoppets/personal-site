@@ -18,12 +18,12 @@
 
       $scope.formData = {};
       $scope.submitted = false;
-      $scope.opacity = new Transitionable(0);
 
       PageFactory.newPage('Contact | Gareth Hughes');
 
       $scope.animate = function () {
-        $scope.opacity.set(1, {
+        $scope.entryOpacity = new Transitionable(0);
+        $scope.entryOpacity.set(1, {
           duration: 500,
           curve: 'easeInOut'
         });
@@ -49,18 +49,11 @@
   ])
   
   .controller('ContactSuccessCtrl', [
-    '$scope', '$famous',
-    function ($scope, $famous) {
-      var Transitionable = $famous['famous/transitions/Transitionable'];
-      var Easing = $famous['famous/transitions/Easing'];
-      $scope.opacity = new Transitionable(0);
-      
-      $scope.animate = function () {
-        $scope.opacity.set(1, {
-          duration: 500,
-          curve: 'easeInOut'
-        });
-      }();
+    '$scope',
+    function ($scope) {
+      $scope.$on('$stateChangeSuccess', function () {
+        $scope.animate();
+      });
     }
   ]);
 }());
