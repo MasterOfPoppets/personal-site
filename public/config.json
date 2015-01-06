@@ -10,6 +10,6 @@
     {"name": "portfolio", "link": "portfolio"},
     {"name": "play!", "link": "play"},
     {"name": "blog", "link": "blog"},
-    {"name": "contact me", "link": "contact"}
+    {"name": "contact me", "link": "contact.form"}
   ]
 }
