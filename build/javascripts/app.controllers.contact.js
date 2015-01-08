@@ -5,11 +5,8 @@
   angular.module('gh.controller.contact', [])
   
   .controller('ContactCtrl', [
-    '$scope', '$famous', '$state', 'PageFactory',
-    function ($scope, $famous, $state, PageFactory) {
-      var Transitionable = $famous['famous/transitions/Transitionable'];
-      var Easing = $famous['famous/transitions/Easing'];
-
+    '$scope', '$state', 'PageFactory',
+    function ($scope, $state, PageFactory) {
       // If we are here through a refresh then we will not be in the correct
       // state, so we will manually transition to it here.
       if (!$state.is('contact.form')) {
@@ -20,20 +17,24 @@
       $scope.submitted = false;
 
       PageFactory.newPage('Contact | Gareth Hughes');
-
-      $scope.animate = function () {
-        $scope.entryOpacity = new Transitionable(0);
-        $scope.entryOpacity.set(1, {
-          duration: 500,
-          curve: 'easeInOut'
-        });
-      };
     }
   ])
 
   .controller('ContactFormCtrl', [
-    '$scope', '$http', '$state',
-    function ($scope, $http, $state) {
+    '$scope', '$http', '$state', '$famous',
+    function ($scope, $http, $state, $famous) {
+      var Transitionable = $famous['famous/transitions/Transitionable'];
+      
+      $scope.animateExit = function () {
+        $scope.exitOpacity = new Transitionable(1);
+        $scope.exitOpacity.set(0, {
+          duration: 500,
+          curve: 'easeInOut'
+        }, function () {
+          $state.transitionTo('contact.success');
+        });
+      };
+      
       $scope.submit = function (contactForm) {
         $scope.submitted = true;
         $http({
@@ -42,17 +43,27 @@
           data: $scope.formData
         })
         .success(function () {
-          $state.transitionTo('contact.success');
+          $scope.animateExit();
         });
       };
     }
   ])
   
   .controller('ContactSuccessCtrl', [
-    '$scope',
-    function ($scope) {
+    '$scope', '$famous',
+    function ($scope, $famous) {
+      var Transitionable = $famous['famous/transitions/Transitionable'];
+      
+      $scope.animateEntry = function () {
+        $scope.entryOpacity = new Transitionable(0);
+        $scope.entryOpacity.set(1, {
+          duration: 500,
+          curve: 'easeInOut'
+        });
+      };
+      
       $scope.$on('$stateChangeSuccess', function () {
-        $scope.animate();
+        $scope.animateEntry();
       });
     }
   ]);
