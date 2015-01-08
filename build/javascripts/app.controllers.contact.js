@@ -2,7 +2,7 @@
 
 (function () {
   'use strict';
-  angular.module('gh.controller.contact', [])
+  angular.module('gh.controllers.contact', [])
   
   .controller('ContactCtrl', [
     '$scope', '$state', 'PageFactory',
@@ -21,20 +21,8 @@
   ])
 
   .controller('ContactFormCtrl', [
-    '$scope', '$http', '$state', '$famous',
-    function ($scope, $http, $state, $famous) {
-      var Transitionable = $famous['famous/transitions/Transitionable'];
-      
-      $scope.animateExit = function () {
-        $scope.exitOpacity = new Transitionable(1);
-        $scope.exitOpacity.set(0, {
-          duration: 500,
-          curve: 'easeInOut'
-        }, function () {
-          $state.transitionTo('contact.success');
-        });
-      };
-      
+    '$scope', '$http', '$state', 'FamousAnimationsFactory',
+    function ($scope, $http, $state, FamousAnimationsFactory) {
       $scope.submit = function (contactForm) {
         $scope.submitted = true;
         $http({
@@ -43,27 +31,19 @@
           data: $scope.formData
         })
         .success(function () {
-          $scope.animateExit();
+          $scope.exitOpacity = FamousAnimationsFactory.animateOut(function () {
+            $state.transitionTo('contact.success');
+          });
         });
       };
     }
   ])
   
   .controller('ContactSuccessCtrl', [
-    '$scope', '$famous',
-    function ($scope, $famous) {
-      var Transitionable = $famous['famous/transitions/Transitionable'];
-      
-      $scope.animateEntry = function () {
-        $scope.entryOpacity = new Transitionable(0);
-        $scope.entryOpacity.set(1, {
-          duration: 500,
-          curve: 'easeInOut'
-        });
-      };
-      
+    '$scope', 'FamousAnimationsFactory',
+    function ($scope, FamousAnimationsFactory) {        
       $scope.$on('$stateChangeSuccess', function () {
-        $scope.animateEntry();
+        $scope.entryOpacity = FamousAnimationsFactory.animateIn();
       });
     }
   ]);

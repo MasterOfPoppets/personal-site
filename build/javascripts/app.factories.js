@@ -2,7 +2,7 @@
 
 (function () {
   'use strict';
-  angular.module('GHFactories', [])
+  angular.module('gh.factories', ['gh.factories.famous'])
 
     .factory('PageFactory', function () {
       var page = {

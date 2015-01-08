@@ -4,7 +4,7 @@
   'use strict';
 
   angular.module('GHApp', [
-    'GHControllers', 'GHFactories', 'famous.angular', 'ui.router'])
+    'gh.controllers', 'gh.factories', 'famous.angular', 'ui.router'])
   
   .config([
     '$stateProvider', '$urlRouterProvider', '$locationProvider',

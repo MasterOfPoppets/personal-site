@@ -2,88 +2,89 @@
 
 (function () {
   'use strict';
-  angular.module('GHControllers', [
-    'gh.controller.contact', 'gh.controller.portfolio', 'gh.fireblogger'])
+  angular.module('gh.controllers', [
+    'gh.controllers.contact', 'gh.controllers.portfolio', 'gh.fireblogger'
+  ])
 
-    .controller('GHCtrl', [
-      '$scope', '$http', 'PageFactory', 'Fireblogger', 
-      function ($scope, $http, PageFactory, Fireblogger) {
-        // Set PageFactory to app-wide scope
-        $scope.PageFactory = PageFactory;
-        
-        // Get configuration file for links etc
-        $http.get('/config.json').success(function (data) {
-          $scope.socialLinks = data.socialLinks;
-          $scope.siteLinks = data.siteLinks;
-        });
-        
-        // Load all blog entries - maybe not the best location for this
-        Fireblogger.loadAllPosts();
-    }])
+  .controller('GHCtrl', [
+    '$scope', '$http', 'PageFactory', 'Fireblogger', 
+    function ($scope, $http, PageFactory, Fireblogger) {
+      // Set PageFactory to app-wide scope
+      $scope.PageFactory = PageFactory;
 
-    .controller('BlogCtrl', [
-      '$scope', 'PageFactory', 'Fireblogger', '$stateParams',
-      function ($scope, PageFactory, Fireblogger, $stateParams) {
-        $scope.model = Fireblogger.FirebloggerPostModel;
-        
-        if ($stateParams.id) {
-          Fireblogger.getPost($stateParams.id);
-        }
-        
-        PageFactory.newPage('Blog | Gareth Hughes');
-    }])
+      // Get configuration file for links etc
+      $http.get('/config.json').success(function (data) {
+        $scope.socialLinks = data.socialLinks;
+        $scope.siteLinks = data.siteLinks;
+      });
 
-    .controller('HomeCtrl', ['PageFactory', function (PageFactory) {
-      PageFactory.newPage('Gareth Hughes');
-    }])
+      // Load all blog entries - maybe not the best location for this
+      Fireblogger.loadAllPosts();
+  }])
 
-    .controller('PlayCtrl', [
-      '$scope', 'PageFactory', 
-      function ($scope, PageFactory) {
-        $scope.isShowPlayItem = PageFactory.showExpandedItem;
+  .controller('BlogCtrl', [
+    '$scope', 'PageFactory', 'Fireblogger', '$stateParams',
+    function ($scope, PageFactory, Fireblogger, $stateParams) {
+      $scope.model = Fireblogger.FirebloggerPostModel;
 
-        PageFactory.newPage('Play! | Gareth Hughes');
-    }])
+      if ($stateParams.id) {
+        Fireblogger.getPost($stateParams.id);
+      }
 
-    .controller('PlayItemCtrl', [
-      '$scope', 'PageFactory', 
-      function ($scope, PageFactory) {
-        $scope.isShowPlayItem = PageFactory.showExpandedItem;
-        $scope.coords = {
-          xCoord: 1600,
-          yCoord: 3150
-        };
-        $scope.testy = {
-          imgSrc: '',
-          imgSrc2: '',
-          imgSrc3: '',
-          imgSrc4: ''
-        };
+      PageFactory.newPage('Blog | Gareth Hughes');
+  }])
 
-        $scope.test = function () {
-          $scope.testy.imgSrc = 'images/play/IMG_1129.JPG?w=720';
-        };
+  .controller('HomeCtrl', ['PageFactory', function (PageFactory) {
+    PageFactory.newPage('Gareth Hughes');
+  }])
 
-        $scope.test2 = function () {
-          $scope.testy.imgSrc2 = 'images/play/IMG_1129.JPG?w=320';
-        };
+  .controller('PlayCtrl', [
+    '$scope', 'PageFactory', 
+    function ($scope, PageFactory) {
+      $scope.isShowPlayItem = PageFactory.showExpandedItem;
 
-        $scope.test3 = function () {
-          $scope.testy.imgSrc3 = 
-            'images/play/IMG_1129.JPG?w=720&crop=1200,800,3150,1600';
-        };
+      PageFactory.newPage('Play! | Gareth Hughes');
+  }])
 
-        $scope.test4 = function () {
-          $scope.testy.imgSrc4 = 
-            'images/play/IMG_1129.JPG?w=720&crop=1200,800,' + 
-            $scope.coords.yCoord + ',' + $scope.coords.xCoord;
-        };
+  .controller('PlayItemCtrl', [
+    '$scope', 'PageFactory', 
+    function ($scope, PageFactory) {
+      $scope.isShowPlayItem = PageFactory.showExpandedItem;
+      $scope.coords = {
+        xCoord: 1600,
+        yCoord: 3150
+      };
+      $scope.testy = {
+        imgSrc: '',
+        imgSrc2: '',
+        imgSrc3: '',
+        imgSrc4: ''
+      };
 
-        PageFactory.newPage('Play! | Gareth Hughes');
-        PageFactory.setShowExpandedItem(true);
-    }])
+      $scope.test = function () {
+        $scope.testy.imgSrc = 'images/play/IMG_1129.JPG?w=720';
+      };
 
-    .controller('SkillsCtrl', ['PageFactory', function (PageFactory) {
-        PageFactory.newPage('Skills | Gareth Hughes');
-    }]);
+      $scope.test2 = function () {
+        $scope.testy.imgSrc2 = 'images/play/IMG_1129.JPG?w=320';
+      };
+
+      $scope.test3 = function () {
+        $scope.testy.imgSrc3 = 
+          'images/play/IMG_1129.JPG?w=720&crop=1200,800,3150,1600';
+      };
+
+      $scope.test4 = function () {
+        $scope.testy.imgSrc4 = 
+          'images/play/IMG_1129.JPG?w=720&crop=1200,800,' + 
+          $scope.coords.yCoord + ',' + $scope.coords.xCoord;
+      };
+
+      PageFactory.newPage('Play! | Gareth Hughes');
+      PageFactory.setShowExpandedItem(true);
+  }])
+
+  .controller('SkillsCtrl', ['PageFactory', function (PageFactory) {
+      PageFactory.newPage('Skills | Gareth Hughes');
+  }]);
 }());

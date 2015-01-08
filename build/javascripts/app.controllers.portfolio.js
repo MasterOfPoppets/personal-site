@@ -2,7 +2,7 @@
 
 (function () {
   'use strict';
-  angular.module('gh.controller.portfolio', [])
+  angular.module('gh.controllers.portfolio', [])
   
     .controller('PortfolioCtrl', [
       '$scope', 'PageFactory', '$famous',
