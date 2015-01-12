@@ -39,7 +39,8 @@
               }
             );
           } else {
-            console.log('Something has gone wrong'); 
+            console.log(data.errorType);
+            console.log(data.errors);
           }
         });
       };
@@ -47,10 +48,12 @@
   ])
   
   .controller('ContactSuccessCtrl', [
-    '$scope', '$famousAnimations',
-    function ($scope, $famousAnimations) {        
+    '$scope', '$state', '$famousAnimations',
+    function ($scope, $state, $famousAnimations) {        
       $scope.$on('$stateChangeSuccess', function () {
-        $scope.entryOpacity = $famousAnimations.animateIn();
+        if ($state.is('contact.success')) {
+          $scope.entryOpacity = $famousAnimations.animateIn();
+        }
       });
     }
   ]);
