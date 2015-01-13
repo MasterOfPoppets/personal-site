@@ -5,18 +5,18 @@ fa-app(style='height: 440px')#contact-form
         .form-group
           label(for='enquiry_name') Name*
           input.form-control(ng-model='formData.enquiry_name' type='text' name='enquiry_name')
-          span.form-validation-help(ng-show='enquiry_name_error') {{ enquiry_name_error }}
+          span.form-validation-help(ng-show='errors.enquiry_name') {{ errors.enquiry_name }}
         .form-group
           label(for='enquiry_email') Email*
           input.form-control(ng-model='formData.enquiry_email' type='email' name='enquiry_email')
-          span.form-validation-help(ng-show='enquiry_email_error') {{ enquiry_email_error }}
+          span.form-validation-help(ng-show='errors.enquiry_email') {{ errors.enquiry_email }}
         .form-group
           label(for='enquiry_subject') Subject
           input.form-control(ng-model='formData.enquiry_subject' type='text' name='enquiry_subject')
         .form-group
           label(for='enquiry_message') Message*
           textarea.form-control(ng-model='formData.enquiry_message' type='text' name='enquiry_message' rows='5')
-          span.form-validation-help(ng-show='enquiry_message_error') {{ enquiry_message_error }}
+          span.form-validation-help(ng-show='errors.enquiry_message') {{ errors.enquiry_message }}
         .form-group.vkemail
           label(for='email') Email (Voight-Kampff Test)
           input.form-control(ng-model='formData.email' type='email' name='email')

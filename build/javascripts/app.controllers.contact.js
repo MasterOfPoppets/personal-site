@@ -7,9 +7,6 @@
   .controller('ContactCtrl', [
     '$scope', '$state', 'PageFactory',
     function ($scope, $state, PageFactory) {
-      $scope.formData = {};
-      $scope.submitted = false;
-
       PageFactory.newPage('Contact | Gareth Hughes');
       
       // If we are here through a refresh then we will not be in the correct
@@ -23,6 +20,10 @@
   .controller('ContactFormCtrl', [
     '$scope', '$http', '$state', '$famousAnimations',
     function ($scope, $http, $state, $famousAnimations) {
+      $scope.errors = {};
+      $scope.formData = {};
+      $scope.submitted = false;
+      
       $scope.submit = function (contactForm) {
         var httpPostObject = {
           method: 'POST',
@@ -55,18 +56,23 @@
   
   function emailSendFailure(data, $scope) {
     var keys = Object.keys(data.errors);
+    
+    $scope.errors = {};
     for (var i = 0; i < keys.length; i++) {
       if (keys[i] === 'enquiry_name') {
-        $scope.enquiry_name_error = data.errors.enquiry_name; 
+        $scope.errors.enquiry_name = data.errors.enquiry_name; 
       } else if (keys[i] === 'enquiry_email') {
-        $scope.enquiry_email_error = data.errors.enquiry_email; 
+        $scope.errors.enquiry_email = data.errors.enquiry_email; 
       } else if (keys[i] === 'enquiry_message') {
-        $scope.enquiry_message_error = data.errors.enquiry_message; 
+        $scope.errors.enquiry_message = data.errors.enquiry_message; 
       }
     }
+    $scope.submitted = false;
+    console.log($scope.errors);
   }
   
   function emailSendSuccess(data, $scope, $state, $famousAnimations) {
+    $scope.formData = {};
     $scope.exitOpacity = $famousAnimations.animateOut(
       function () {
         $state.transitionTo('contact.success');
