@@ -33,14 +33,9 @@
         $scope.submitted = true;
         $http(httpPostObject).success(function (data) {
           if (data.success) {
-            $scope.exitOpacity = $famousAnimations.animateOut(
-              function () {
-                $state.transitionTo('contact.success');
-              }
-            );
+            emailSendSuccess(data, $scope, $state, $famousAnimations);
           } else {
-            console.log(data.errorType);
-            console.log(data.errors);
+            emailSendFailure(data, $scope);
           }
         });
       };
@@ -57,4 +52,25 @@
       });
     }
   ]);
+  
+  function emailSendFailure(data, $scope) {
+    var keys = Object.keys(data.errors);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i] === 'enquiry_name') {
+        $scope.enquiry_name_error = data.errors.enquiry_name; 
+      } else if (keys[i] === 'enquiry_email') {
+        $scope.enquiry_email_error = data.errors.enquiry_email; 
+      } else if (keys[i] === 'enquiry_message') {
+        $scope.enquiry_message_error = data.errors.enquiry_message; 
+      }
+    }
+  }
+  
+  function emailSendSuccess(data, $scope, $state, $famousAnimations) {
+    $scope.exitOpacity = $famousAnimations.animateOut(
+      function () {
+        $state.transitionTo('contact.success');
+      }
+    );
+  }
 }());

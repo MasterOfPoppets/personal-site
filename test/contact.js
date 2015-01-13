@@ -86,18 +86,22 @@ describe('Contact', function () {
     it('should return errors in array if fields missing', function () {
       var contact = new Contact({});
       
-      contact.validateContactForm().should.deep.equal([
-        {enquiry_name: 'Name is required'},
-        {enquiry_email: 'Email address is required'},
-        {enquiry_message: 'Message is required'}
-      ]);
+      contact.validateContactForm().should.have.deep.property(
+        'enquiry_name', 'Name is required'
+      );
+      contact.validateContactForm().should.have.deep.property(
+        'enquiry_email', 'Email address is required'
+      );
+      contact.validateContactForm().should.have.deep.property(
+        'enquiry_message', 'Message is required'
+      );
     });
     
     it('should return errors in array if email is invalid', function () {
       var contact = new Contact({enquiry_email: 'invalid email'});
       
-      contact.validateContactForm().should.include.something.that.deep.equals(
-        {enquiry_email: 'Invalid email address'}
+      contact.validateContactForm().should.have.deep.property(
+        'enquiry_email', 'Invalid email address'
       );
     });
   });
