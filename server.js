@@ -1,5 +1,7 @@
 (function () {
   'use strict';
+  
+  require('newrelic');
 
   var express = require('express'),
       app = express(),
