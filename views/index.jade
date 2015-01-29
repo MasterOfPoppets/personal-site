@@ -1,37 +1,67 @@
 doctype
-html(ng-app='GHApp' ng-controller='GHCtrl')
+html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
+
   head
-    title(ng-bind='PageFactory.title()')
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='description' content='')
+    meta(name='author' content='')
+    
     base(href='/')
-    // famo.us shims for backwards compatibility
-    script(src='http://code.famo.us/lib/functionPrototypeBind.js')
-    script(src='http://code.famo.us/lib/classList.js')
-    script(src='http://code.famo.us/lib/requestAnimationFrame.js')
-    // bower modules
+    
+    title(ng-bind='PageFactory.title()')
+    
+    // Bower CSS
     link(rel='stylesheet' href='/stylesheets/_bower.css')
+    
+    // Bower Javascripts
     script(src='/javascripts/_bower.js')
-    // font-awesome
-    link(rel='stylesheet' href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css')
-    // app
-    link(rel='stylesheet' href='/stylesheets/style.css')
+    
+    // Custom CSS
+    link(href='/stylesheets/landing-page.css' rel='stylesheet')
+    
+    // Custom Fonts
+    link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic' rel='stylesheet')
+    
+    // Angular App
     script(src='/javascripts/gh.min.js')
+    
   body
-    .wrapper
-      header
-        h1.pull-left gareth hughes
-        #social-links.pull-right
-          ul
-            li(ng-repeat='socialLink in socialLinks')
-              a(href='{{ socialLink.link }}')
-                i.fa(class='{{ socialLink.icon }}')
-        .clearfix
-        .separator
-        nav#site-links.pull-right
-          ul
-            li(ng-repeat='siteLink in siteLinks')
-              a(ui-sref='{{ siteLink.link }}') {{ siteLink.name }}
-        .clearfix
-      .content-view(ui-view)
-      .push
-    footer
-      p Running on node.js with Express, Jade and Stylus
+    // Navigation
+    nav.navbar.navbar-default.navbar-fixed-top.topnav(role='navigation')
+      .container.topnav
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.topnav(href='#') Start Bootstrap
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#about') About
+            li
+              a(href='#services') Services
+            li
+              a(href='#contact') Contact
+
+    // Header
+    a(name='about')
+    .intro-header
+      .container
+        .row
+          .col-lg-12
+            .intro-message
+              h1 Landing Page
+              h3 A Template by Start Bootstrap
+              hr.intro-divider
+              ul.list-inline.intro-social-buttons
+                li(ng-repeat='socialLink in socialLinks')
+                  a.btn.btn-default.btn-lg(href='{{ socialLink.link }}')
+                    i.fa.fa-fw(class='{{ socialLink.icon }}')
+                    span.network-name {{ socialLink.networkName }}

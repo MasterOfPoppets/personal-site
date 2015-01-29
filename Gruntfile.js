@@ -9,11 +9,10 @@
           dest: 'public/javascripts/_bower.js',
           cssDest: 'public/stylesheets/_bower.css',
           exclude: [
-            'famous-angular-bower',
-            'jquery' 
+            'famous-angular-bower'
           ],
           mainFiles: {
-            'bootstrap': 'dist/css/bootstrap.css',
+            'bootstrap': ['dist/css/bootstrap.css', 'dist/js/bootstrap.min.js'],
             'famous': 'dist/famous-global.js',
             'marked': 'lib/marked.js'
           }

@@ -1,8 +1,20 @@
 {
   "socialLinks": [
-    {"icon": "fa-twitter", "link": "https://twitter.com/garethdhughes"},
-    {"icon": "fa-linkedin", "link": "http://uk.linkedin.com/pub/gareth-hughes/a1/50/765/"},
-    {"icon": "fa-github-alt", "link": "https://github.com/MasterOfPoppets/personal-site"}
+    {
+      "icon": "fa-twitter", 
+      "link": "https://twitter.com/garethdhughes",
+      "networkName": "Twitter"
+    },
+    {
+      "icon": "fa-linkedin", 
+      "link": "http://uk.linkedin.com/pub/gareth-hughes/a1/50/765/",
+      "networkName": "LinkedIn"
+    },
+    {
+      "icon": "fa-github-alt",
+      "link": "https://github.com/MasterOfPoppets/personal-site",
+      "networkName": "GitHub"
+    }
   ],
   "siteLinks": [
     {"name": "home", "link": "home"},
