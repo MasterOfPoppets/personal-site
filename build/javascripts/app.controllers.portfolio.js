@@ -13,11 +13,11 @@
         $scope.angle = new Transitionable(0);
         
         $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
-        $scope.test = '/images/portfolio/syn_logo.png';
         $scope.portfolioLinks = [
           {
             link: 'gbst-syn',
-            image: '/images/portfolio/syn_logo.png'
+            image: 'http://res.cloudinary.com/gurrkin/image/upload/' +
+              'v1422541316/portfolio/gbst-syn/syn_logo.png'
           }
         ];
         
