@@ -39,7 +39,7 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand.topnav(href='#') Gareth Hughes
+          a.navbar-brand.topnav(href='#') gareth hughes
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
@@ -50,95 +50,4 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
             li
               a(href='#contact') Contact
 
-    // Header
-    a(name='about')
-    .intro-header
-      .container
-        .row
-          .col-lg-12
-            .intro-message
-              h1 Gareth Hughes
-              h3 MEAN Web Developer
-              hr.intro-divider
-              ul.list-inline.intro-social-buttons
-                li(ng-repeat='socialLink in socialLinks')
-                  a.btn.btn-default.btn-lg(href='{{ socialLink.link }}')
-                    i.fa.fa-fw(class='{{ socialLink.icon }}')
-                    span.network-name {{ socialLink.networkName }}
-
-    // Page Content
-    a(name='services')
-    .content-section-a
-      .container
-        .row
-          .col-lg-5.col-sm-6
-            hr.section-heading-spacer
-            .clearfix
-            h2.section-heading Death to the Stock Photo:<br>Special Thanks
-            p.lead 
-              | A special thanks to <a href='http://join.deathtothestockphoto.com/'>Death to the Stock Photo</a> 
-              | for providing the photographs that you see in this template. 
-              |Visit their website to become a member.
-          col-lg-5.col-lg-offset-2.col-sm-6
-            img.img-responsive(src='img/ipad.png' alt='')
-
-    .content-section-b
-      .container
-        .row
-          .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
-            hr.section-heading-spacer
-            .clearfix
-            h2.section-heading 3D Device Mockups<br>by PSDCovers
-            p.lead 
-              | Turn your 2D designs into high quality, 3D product shots in
-              | seconds using free Photoshop actions by <a href="http://www.psdcovers.com/">PSDCovers</a>! 
-              | Visit their website to download some of their awesome, free 
-              | photoshop actions!
-          .col-lg-5.col-sm-pull-6.col-sm-6
-            img.img-responsive(src='img/dog.png' alt='')
-
-    .content-section-a
-      .container
-        .row
-          .col-lg-5.col-sm-6
-            hr.section-heading-spacer
-            .clearfix
-            h2.section-heading Google Web Fonts and<br>Font Awesome Icons
-            p.lead 
-              | This template features the 'Lato' font, part of the <a href="http://www.google.com/fonts">Google Web Font library</a>
-              | , as well as <a href="http://fontawesome.io">icons from Font
-              | Awesome</a>.
-          .col-lg-5.col-lg-offset-2.col-sm-6
-            img.img-responsive(src='img/phones.png' alt='')
-
-    a(name='contact')
-    .banner
-      .container
-        .row
-          .col-lg-6
-            h2 Connect to Start Bootstrap:
-          .col-lg-6
-            ul.list-inline.banner-social-buttons
-              li(ng-repeat='socialLink in socialLinks')
-                a.btn.btn-default.btn-lg(href='{{ socialLink.link }}')
-                  i.fa.fa-fw(class='{{ socialLink.icon }}')
-                  span.network-name {{ socialLink.networkName }}
-
-    // Footer
-    footer
-      .container
-        .row
-          .col-lg-12
-            ul.list-inline
-              li
-                a(href='#') Home
-              li.footer-menu-divider &sdot;
-              li
-                a(href='#about') About
-              li.footer-menu-divider &sdot;
-              li
-                a(href='#services') Services
-              li.footer-menu-divider &sdot;
-              li
-                a(href='#contact') Contact
-            p.copyright.text-muted.small Copyright &copy; Gareth Hughes 2014. All Rights Reserved
+    .content-view(ui-view)
