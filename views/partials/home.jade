@@ -1,23 +1,14 @@
 doctype
 // Header
-a(name='about')
-.intro-header
+header
   .container
-    .row
-      .col-lg-12
-        .intro-message
-          h1 gareth hughes
-          h3 MEAN Web Developer
-          hr.intro-divider
-          ul.list-inline.intro-social-buttons
-            li(ng-repeat='socialLink in socialLinks')
-              a.btn.btn-default.btn-lg(href='{{ socialLink.link }}')
-                i.fa.fa-fw(class='{{ socialLink.icon }}')
-                span.network-name {{ socialLink.networkName }}
+    .intro-text
+      .intro-lead-in gareth hughes
+      .intro-heading MEAN Web Developer
+      a.page-scroll.btn.btn-xl(href='#services') Tell Me More
 
 // Page Content
-a(name='services')
-.content-section-a
+section#services
   .container
     .row
       .col-lg-5.col-sm-6
@@ -31,7 +22,7 @@ a(name='services')
       col-lg-5.col-lg-offset-2.col-sm-6
         img.img-responsive(src='img/ipad.png' alt='')
 
-.content-section-b
+section#portfolio.bg-light-gray
   .container
     .row
       .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6

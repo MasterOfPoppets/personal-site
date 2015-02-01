@@ -17,11 +17,21 @@
     }
   ],
   "siteLinks": [
-    {"name": "home", "link": "home"},
-    {"name": "skills", "link": "skills"},
-    {"name": "portfolio", "link": "portfolio"},
-    {"name": "play!", "link": "play"},
-    {"name": "blog", "link": "blog"},
-    {"name": "contact me", "link": "contact.form"}
+    {
+      "name": "Services", 
+      "link": "#services"
+    },
+    {
+      "name": "Portfolio", 
+      "link": "#portfolio"
+    },
+    {
+      "name": "Blog", 
+      "link": "#blog"
+    },
+    {
+      "name": "Contact", 
+      "link": "#contact"
+    }
   ]
 }
