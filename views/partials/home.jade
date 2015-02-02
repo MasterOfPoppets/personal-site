@@ -1,31 +1,71 @@
 doctype
-// Header
-header
-  .container
-    .intro-text
-      .intro-lead-in gareth hughes
-      .intro-heading MEAN Web Developer
-      a.page-scroll.btn.btn-xl(href='#services') Tell Me More
-
 // Page Content
 section#services
   .container
     .row
-      .col-lg-5.col-sm-6
-        hr.section-heading-spacer
-        .clearfix
-        h2.section-heading One MEAN Developer
-        p.lead 
+      .col-lg-12.text-center
+        h2.section-heading Services
+        h3.section-subheading.text-muted This is an overview of the stuff I do
+    .row.text-center
+      .col-md-4
+        span.fa-stack.fa-4x
+          i.fa.fa-circle.fa-stack-2x.text-primary
+          i.fa.fa-code-fork.fa-stack-1x.fa-inverse
+        h4.service-heading One MEAN Developer
+        p
           | I am a MEAN Web Developer. MEAN is an acronym for MongoDB, Express,
           | Angular, Node - a full stack of technologies that allow me to
           | create powerful web applications.
-      col-lg-5.col-lg-offset-2.col-sm-6
-        img.img-responsive(src='img/ipad.png' alt='')
-
+      .col-md-4
+        span.fa-stack.fa-4x
+          i.fa.fa-circle.fa-stack-2x.text-primary
+          i.fa.fa-laptop.fa-stack-1x.fa-inverse
+        h4.service-heading Design and Conquer
+        p
+          | Having a fantastic interactive web application is great, but if it
+          | doesn't look good then nobody will want to stay for long. With an 
+          | eye for detail*, as well as technologies such as Bootstrap, HTML5
+          | and CSS3, I will make sure that your application not only does the
+          | job, but looks great too.
+        p.text-muted
+          | * and a reputation for pixel counting!
+      .col-md-4
+        span.fa-stack.fa-4x
+          i.fa.fa-circle.fa-stack-2x.text-primary
+          i.fa.fa-graduation-cap.fa-stack-1x.fa-inverse
+        h4.service-heading Consultancy
+        p
+          | I am a MEAN Web Developer. MEAN is an acronym for MongoDB, Express,
+          | Angular, Node - a full stack of technologies that allow me to
+          | create powerful web applications.
+          
 section#portfolio.bg-light-gray
   .container
     .row
-      .col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
+      .col-lg-12.text-center
+        h2.section-heading Portfolio
+        h3.section-subheading.text-muted Some examples of my work.
+
+    .row
+      .col-md-4.col-md-push-4.col-sm-6.col-sm-push-3.portfolio-item
+        a(href='/portfolio/gbst-syn').portfolio-link
+          .portfolio-hover
+            .portfolio-hover-content
+              i.fa.fa-plus.fa-3x
+          img.img-responsive(src='http://res.cloudinary.com/gurrkin/image/upload/c_scale,w_400/v1422541316/portfolio/gbst-syn/syn_logo.png' alt='')
+        .portfolio-caption
+          h4 Syn~
+          p.text-muted Full stack Java application
+
+section#blog
+  .container
+    .row
+      .col-lg-12.text-center
+        h2.section-heading Blog
+        h3.section-subheading.text-muted Musings on Web Development
+        a.page-scroll.btn.btn-xl(href='/blog') Read the blog
+    
+      //.col-lg-5.col-lg-offset-1.col-sm-push-6.col-sm-6
         hr.section-heading-spacer
         .clearfix
         h2.section-heading Design and Conquer
@@ -37,51 +77,38 @@ section#portfolio.bg-light-gray
           | job, but looks great too.
         p.small
           | * and a reputation for pixel counting!
-      .col-lg-5.col-sm-pull-6.col-sm-6
+      //.col-lg-5.col-sm-pull-6.col-sm-6
         img.img-responsive(src='img/dog.png' alt='')
 
-.content-section-a
+section#contact
   .container
     .row
-      .col-lg-5.col-sm-6
-        hr.section-heading-spacer
-        .clearfix
-        h2.section-heading Google Web Fonts and<br>Font Awesome Icons
-        p.lead 
-          | This template features the 'Lato' font, part of the <a href="http://www.google.com/fonts">Google Web Font library</a>
-          | , as well as <a href="http://fontawesome.io">icons from Font
-          | Awesome</a>.
-      .col-lg-5.col-lg-offset-2.col-sm-6
-        img.img-responsive(src='img/phones.png' alt='')
-
-a(name='contact')
-.banner
-  .container
-    .row
-      .col-lg-6
-        h2 Get in touch:
-      .col-lg-6
-        ul.list-inline.banner-social-buttons
-          li(ng-repeat='socialLink in socialLinks')
-            a.btn.btn-default.btn-lg(href='{{ socialLink.link }}')
-              i.fa.fa-fw(class='{{ socialLink.icon }}')
-              span.network-name {{ socialLink.networkName }}
-
-// Footer
-footer
-  .container
+      .col-lg-12.text-center
+        h2.section-heading Contact Me
+        h3.section-subheading.text-muted Because frankly, why wouldn't you?
     .row
       .col-lg-12
-        ul.list-inline
-          li
-            a(href='#') Home
-          li.footer-menu-divider &sdot;
-          li
-            a(href='#about') About
-          li.footer-menu-divider &sdot;
-          li
-            a(href='#services') Services
-          li.footer-menu-divider &sdot;
-          li
-            a(href='#contact') Contact
-        p.copyright.text-muted.small Copyright &copy; Gareth Hughes 2014. All Rights Reserved
+        //fa-app(style='height: 440px')#contact-form
+          fa-modifier(fa-opacity='exitOpacity.get()')
+            fa-surface
+        form(ng-submit='submit(contactForm)' id='contact-form' method='POST' role='form' name='contactForm' novalidate)
+          .row
+            .col-md-6
+              .form-group
+                input.form-control(ng-model='formData.enquiry_name' type='text' name='enquiry_name' id='enquiry_name' placeholder='Name *')
+                p.help-block.text-danger(ng-show='errors.enquiry_name') {{ errors.enquiry_name }}
+              .form-group
+                input.form-control(ng-model='formData.enquiry_email' type='email' name='enquiry_email' id='enquiry_email' placeholder='Email *')
+                p.help-block.text-danger(ng-show='errors.enquiry_email') {{ errors.enquiry_email }}
+              .form-group
+                input.form-control(ng-model='formData.enquiry_subject' type='text' name='enquiry_subject' id='enquiry_subject' placeholder='Subject')
+              .form-group.vkemail
+                label(for='email') Email (Voight-Kampff Test)
+                input.form-control(ng-model='formData.email' type='email' name='email' id='email')
+            .col-md-6
+              .form-group
+                textarea.form-control(ng-model='formData.enquiry_message' type='text' name='enquiry_message' id='enquiry_message' placeholder='Message *')
+                p.help-block.text-danger(ng-show='errors.enquiry_message') {{ errors.enquiry_message }}
+            .clearfix
+            .col-lg-12.text-center
+              button.btn.btn-xl.center-block(type='submit' ng-disabled='contactForm.$invalid || submitted') Send Message
