@@ -33,10 +33,6 @@
       PageFactory.newPage('Blog | Gareth Hughes');
   }])
 
-  .controller('HomeCtrl', ['PageFactory', function (PageFactory) {
-    PageFactory.newPage('Gareth Hughes');
-  }])
-
   .controller('PlayCtrl', [
     '$scope', 'PageFactory', 
     function ($scope, PageFactory) {

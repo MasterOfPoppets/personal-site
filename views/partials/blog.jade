@@ -1,10 +1,8 @@
-extends ../layouts/content
-block main-content
-  #blog-posts
-    article.blog-entry(ng-repeat='post in model.posts')
-      h2.blog-entry-title
-        a(ui-sref='blogItem({ id: \'{{ post.url }}\' })') {{ post.title }}
-      markdown(ng-model='post.stub')
-      span.blog-entry-date.pull-right
-        i.fa.fa-clock-o {{ post.date }}
-      .clearfix
+#blog-posts.container
+  article.blog-entry(ng-repeat='post in model.posts')
+    h2.blog-entry-title
+      a(ui-sref='blogItem({ id: \'{{ post.url }}\' })') {{ post.title }}
+    markdown(ng-model='post.stub')
+    span.blog-entry-date.pull-right
+      i.fa.fa-clock-o {{ post.date }}
+    .clearfix

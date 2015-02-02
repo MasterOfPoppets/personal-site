@@ -45,7 +45,6 @@
   app.post('/contact', bodyParser.json(), api.contact);
 
   // Partials
-  app.get('/partials/contact', router.contact);
   app.get('/partials/:section', router.loadPartial);
   app.get('/partials/blog/:blogId', router.blogEntry);
   app.get('/partials/:section/:item', router.loadPartialItem);

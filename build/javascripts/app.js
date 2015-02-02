@@ -13,12 +13,14 @@
       $locationProvider.html5Mode(true);
       $locationProvider.hashPrefix('!');
       $stateProvider
-      .state('home', {
+      .state('index', {
+        templateUrl: 'partials/index'
+      })
+      .state('index.home', {
         url: '/',
         views: {
-          '': {
-            templateUrl: 'partials/home',
-            controller: 'HomeCtrl'
+          'content': {
+            templateUrl: 'partials/content'
           },
           'contact': {
             templateUrl: 'partials/contact',
