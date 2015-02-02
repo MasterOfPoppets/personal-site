@@ -15,7 +15,6 @@
       // Get configuration file for links etc
       $http.get('/config.json').success(function (data) {
         $scope.socialLinks = data.socialLinks;
-        $scope.siteLinks = data.siteLinks;
       });
 
       // Load all blog entries - maybe not the best location for this
@@ -82,9 +81,5 @@
 
       PageFactory.newPage('Play! | Gareth Hughes');
       PageFactory.setShowExpandedItem(true);
-  }])
-
-  .controller('SkillsCtrl', ['PageFactory', function (PageFactory) {
-      PageFactory.newPage('Skills | Gareth Hughes');
   }]);
 }());

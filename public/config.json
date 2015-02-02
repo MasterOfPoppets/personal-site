@@ -15,23 +15,5 @@
       "link": "https://github.com/MasterOfPoppets/personal-site",
       "networkName": "GitHub"
     }
-  ],
-  "siteLinks": [
-    {
-      "name": "Services", 
-      "link": "#services"
-    },
-    {
-      "name": "Portfolio", 
-      "link": "#portfolio"
-    },
-    {
-      "name": "Blog", 
-      "link": "#blog"
-    },
-    {
-      "name": "Contact", 
-      "link": "#contact"
-    }
   ]
 }

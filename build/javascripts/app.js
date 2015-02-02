@@ -15,8 +15,16 @@
       $stateProvider
       .state('home', {
         url: '/',
-        templateUrl: 'partials/home',
-        controller: 'HomeCtrl'
+        views: {
+          '': {
+            templateUrl: 'partials/home',
+            controller: 'HomeCtrl'
+          },
+          'contact': {
+            templateUrl: 'partials/contact',
+            controller: 'ContactFormCtrl'
+          }
+        }
       })
       .state('skills', {
         url: '/skills',
