@@ -11,7 +11,7 @@ section#portfolio-items
       a(ui-sref='.item({ id: portfolioLink.link })')
         img(ng-src='{{ portfolioLink.image }}')
     .col-sm-8
-      article#portfolio-item-detail(ui-view)
+      article#portfolio-item-detail(ui-view='portfolioItem')
 //section#portfolio-item(ng-show='isShowPortfolioItem()')
   .row
     .col-sm-12

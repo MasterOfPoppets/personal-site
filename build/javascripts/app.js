@@ -38,12 +38,16 @@
         templateUrl: 'partials/portfolio',
         controller: 'PortfolioCtrl'
       })
-      .state('portfolio.item', {
-        url: '/{id}',
-        templateUrl: function ($stateParams) {
-          return 'partials/portfolio/' + $stateParams.id;
-        },
-        controller: 'PortfolioItemCtrl'
+      .state('portfolioItem', {
+        url: '/portfolio/{id}',
+        views: {
+          '': {
+            templateUrl: function ($stateParams) {
+              return 'partials/portfolio/' + $stateParams.id;
+            },
+            controller: 'PortfolioItemCtrl'
+          }
+        }        
       })
       .state('play', {
         url: '/play',
