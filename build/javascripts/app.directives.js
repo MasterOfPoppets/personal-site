@@ -4,10 +4,10 @@
   'use strict';
   angular.module('gh.directives', [])
 
-  .directive('sociallink', function () {
+  .directive('ghSocialLink', function () {
     return {
-      restrict: 'A',
-      template: '<a href=\'{{ socialLink.link }}\'><i class=\'fa {{ socialLink.icon }}\'></i></a>'
+      restrict: 'E',
+      templateUrl: '/templates/gh-social-link.html'
     };
   });
 }());
