@@ -75,9 +75,7 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
             span.copyright Copyright &copy; Gareth Hughes 2015
           .col-md-4
             ul.list-inline.social-buttons
-              li(ng-repeat='socialLink in socialLinks')
-                a(href='{{ socialLink.link }}')
-                  i.fa(class='{{ socialLink.icon }}')
+              li(sociallink ng-repeat='socialLink in ::socialLinks')
           //.col-md-4
             ul.list-inline.quicklinks
               li
