@@ -40,7 +40,7 @@
         controller: 'PortfolioCtrl'
       })
       .state('portfolioItem', {
-        url: '/portfolio/{id}',
+        url: '/portfolio/:id',
         views: {
           '': {
             templateUrl: function ($stateParams) {
@@ -56,7 +56,7 @@
         controller: 'PlayCtrl'
       })
       .state('play.item', {
-        url: '/{id}',
+        url: '/:id',
         templateUrl: function ($stateParams) {
           return 'partials/play/' + $stateParams.id;
         },
@@ -68,7 +68,7 @@
         controller: 'BlogCtrl'
       })
       .state('blogItem', {
-        url: '/blog/{id}',
+        url: '/blog/:id',
         templateUrl: function ($stateParams) {
           return 'partials/blog/' + $stateParams.id;
         },

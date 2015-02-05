@@ -29,6 +29,12 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
     link(href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet')
     link(href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet')
     
+    // Bower Javascripts
+    script(src='/javascripts/_bower.js')
+    
+    // Angular App
+    script(src='/javascripts/gh.min.js')
+    
   body#page-top.index
     // Navigation
     nav.navbar.navbar-default.navbar-fixed-top
@@ -79,12 +85,6 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
                 a(href='#') Privacy Policy
               li
                 a(href='#') Terms of Use
-    
-    // Bower Javascripts
-    script(src='/javascripts/_bower.js')
-    
-    // Angular App
-    script(src='/javascripts/gh.min.js')
     
     // Custom Javascripts
     script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
