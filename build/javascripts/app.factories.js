@@ -7,6 +7,7 @@
   .factory('PageFactory', function () {
     var page = {
       showExpandedItem: false,
+      testLink: '#services',
       title: 'Gareth Hughes'
     };
 
@@ -22,6 +23,14 @@
 
       setShowExpandedItem: function (showExpandedItem) {
         page.showExpandedItem = showExpandedItem;
+      },
+      
+      setTest: function (value) {
+        page.testLink = value;
+      },
+      
+      test: function () {
+        return page.testLink;
       },
 
       title: function () {
