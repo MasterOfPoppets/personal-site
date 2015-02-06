@@ -18,8 +18,8 @@
   ])
 
   .controller('ContactFormCtrl', [
-    '$scope', '$http', '$state', '$famousAnimations',
-    function ($scope, $http, $state, $famousAnimations) {
+    '$scope', '$http', '$state'/*, '$famousAnimations'*/,
+    function ($scope, $http, $state/*, $famousAnimations*/) {
       $scope.errors = {};
       $scope.formData = {};
       $scope.submitted = false;
@@ -34,7 +34,7 @@
         $scope.submitted = true;
         $http(httpPostObject).success(function (data) {
           if (data.success) {
-            emailSendSuccess(data, $scope, $state, $famousAnimations);
+            emailSendSuccess(data, $scope, $state/*, $famousAnimations*/);
           } else {
             emailSendFailure(data, $scope);
           }
@@ -44,13 +44,13 @@
   ])
   
   .controller('ContactSuccessCtrl', [
-    '$scope', '$state', '$famousAnimations',
-    function ($scope, $state, $famousAnimations) {        
-      $scope.$on('$stateChangeSuccess', function () {
-        if ($state.is('contact.success')) {
-          $scope.entryOpacity = $famousAnimations.animateIn();
-        }
-      });
+    '$scope', '$state'/*, '$famousAnimations'*/,
+    function ($scope, $state/*, $famousAnimations*/) {        
+//      $scope.$on('$stateChangeSuccess', function () {
+//        if ($state.is('contact.success')) {
+//          $scope.entryOpacity = $famousAnimations.animateIn();
+//        }
+//      });
     }
   ]);
   
@@ -71,12 +71,12 @@
     console.log($scope.errors);
   }
   
-  function emailSendSuccess(data, $scope, $state, $famousAnimations) {
+  function emailSendSuccess(data, $scope, $state/*, $famousAnimations*/) {
     $scope.formData = {};
-    $scope.exitOpacity = $famousAnimations.animateOut(
-      function () {
-        $state.transitionTo('contact.success');
-      }
-    );
+//    $scope.exitOpacity = $famousAnimations.animateOut(
+//      function () {
+//        $state.transitionTo('contact.success');
+//      }
+//    );
   }
 }());

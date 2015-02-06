@@ -34,7 +34,6 @@
         }
         
         function scrollPage() {
-          console.log('scrolling');
           if (scrollY() > scope.changeHeaderOn) {
             element.addClass('navbar-shrink');
           } else {
