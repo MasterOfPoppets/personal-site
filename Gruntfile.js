@@ -9,6 +9,8 @@
           dest: 'public/javascripts/_bower.js',
           cssDest: 'public/stylesheets/_bower.css',
           exclude: [
+            'famous',
+            'famous-angular',
             'famous-angular-bower'
           ],
           mainFiles: {
