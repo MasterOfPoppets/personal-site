@@ -26,7 +26,7 @@
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-        scope.changeHeaderOn = 300;
+        scope.changeHeaderOn = 175;
         scope.didScroll = false;
         
         function scrollY() {
