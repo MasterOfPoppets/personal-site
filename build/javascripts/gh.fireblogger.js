@@ -38,10 +38,10 @@
       return {
         restrict: 'E',
         require: 'ngModel',
-        link: function ($scope, $elem, $attrs, ngModel) {          
+        link: function (scope, element, attrs, ngModel) {          
           ngModel.$render = function () {
             var html = marked(ngModel.$viewValue || '');
-            $elem.html(html);
+            element.html(html);
           };
         }
       };

@@ -20,6 +20,9 @@
         .state('index.home', {
           url: '/',
           views: {
+            'navigation': {
+              templateUrl: 'partials/navigation'
+            },
             'content': {
               templateUrl: 'partials/content'
             },

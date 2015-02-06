@@ -36,39 +36,6 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
     script(src='/javascripts/gh.min.js')
     
   body#page-top.index
-    // Navigation
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header
-          button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(gh-scrolling-anchor href='#page-top') Gareth Hughes
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li.hidden
-              a(name='#page-top')
-            li
-              a(gh-scrolling-anchor href='#services') Services
-            li
-              a(gh-scrolling-anchor href='#portfolio') Portfolio
-            li
-              a(gh-scrolling-anchor href='#blog') Blog
-            li
-              a(gh-scrolling-anchor href='#contact') Contact
-    
-    // Header
-    header
-      .container
-        .intro-text
-          .intro-lead-in gareth hughes
-          .intro-heading MEAN Web Developer
-          a.btn.btn-xl(gh-scrolling-anchor href='#services') Tell Me More
-
     div(ui-view)
   
     footer
@@ -89,5 +56,4 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
     // Custom Javascripts
     script(src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js')
     script(src='/javascripts/classie.js')
-    script(src='/javascripts/cbpAnimatedHeader.js')
     script(src='/javascripts/agency.js')

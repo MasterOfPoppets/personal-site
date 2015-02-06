@@ -1,0 +1,27 @@
+doctype
+// Navigation
+nav.navbar.navbar-default.navbar-fixed-top(gh-shrinking-header)
+  .container
+    // Brand and toggle get grouped for better mobile display
+    .navbar-header
+      button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(gh-scrolling-anchor href='#page-top') Gareth Hughes
+    // Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.hidden
+          a(name='#page-top')
+        li
+          a(gh-scrolling-anchor href='#services') Services
+        li
+          a(gh-scrolling-anchor href='#portfolio') Portfolio
+        li
+          a(gh-scrolling-anchor href='#blog') Blog
+        li
+          a(gh-scrolling-anchor href='#contact') Contact
+          
+script(src='/javascripts/cbpAnimatedHeader.js')
