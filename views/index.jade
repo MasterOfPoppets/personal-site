@@ -40,26 +40,26 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
     nav.navbar.navbar-default.navbar-fixed-top
       .container
         // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
+        .navbar-header
           button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand.page-scroll(href='#page-top') Gareth Hughes
+          a.navbar-brand(gh-scrolling-anchor href='#page-top') Gareth Hughes
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li.hidden
               a(name='#page-top')
             li
-              a.page-scroll(href='#services') Services
+              a(gh-scrolling-anchor href='#services') Services
             li
-              a.page-scroll(href='#portfolio') Portfolio
+              a(gh-scrolling-anchor href='#portfolio') Portfolio
             li
-              a.page-scroll(href='#blog') Blog
+              a(gh-scrolling-anchor href='#blog') Blog
             li
-              a.page-scroll(href='#contact') Contact
+              a(gh-scrolling-anchor href='#contact') Contact
     
     // Header
     header
@@ -67,7 +67,7 @@ html(lang='en' ng-app='GHApp' ng-controller='GHCtrl')
         .intro-text
           .intro-lead-in gareth hughes
           .intro-heading MEAN Web Developer
-          a.page-scroll.btn.btn-xl(href='#services') Tell Me More
+          a.btn.btn-xl(gh-scrolling-anchor href='#services') Tell Me More
 
     div(ui-view)
   
