@@ -15,6 +15,7 @@
           ],
           mainFiles: {
             'angular': 'angular.min.js',
+            'angular-ui-router': 'release/angular-ui-router.min.js',
             'bootstrap': ['dist/css/bootstrap.css', 'dist/js/bootstrap.min.js'],
             'famous': 'dist/famous-global.js',
             'marked': 'lib/marked.js'
