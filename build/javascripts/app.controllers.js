@@ -37,8 +37,6 @@
       if ($stateParams.id) {
         Fireblogger.getPost($stateParams.id);
       }
-      
-      PageFactory.setTest('/#services');
 
       PageFactory.newPage('Blog | Gareth Hughes');
     }

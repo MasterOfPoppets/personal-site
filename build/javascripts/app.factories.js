@@ -5,9 +5,8 @@
   angular.module('gh.factories', [])
 
   .factory('PageFactory', function () {
-    var page = {
+    var page = { 
       showExpandedItem: false,
-      testLink: '#services',
       title: 'Gareth Hughes'
     };
 
@@ -17,20 +16,12 @@
         page.title = title;
       },
 
-      showExpandedItem: function () {
-        return page.showExpandedItem;
-      },
-
       setShowExpandedItem: function (showExpandedItem) {
         page.showExpandedItem = showExpandedItem;
       },
-      
-      setTest: function (value) {
-        page.testLink = value;
-      },
-      
-      test: function () {
-        return page.testLink;
+
+      showExpandedItem: function () {
+        return page.showExpandedItem;
       },
 
       title: function () {
