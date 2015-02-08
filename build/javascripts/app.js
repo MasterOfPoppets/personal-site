@@ -15,7 +15,8 @@
       $locationProvider.hashPrefix('!');
       $stateProvider
         .state('index', {
-          templateUrl: 'partials/index'
+          templateUrl: 'partials/index',
+          controller: 'IndexCtrl'
         })
         .state('index.home', {
           url: '/',

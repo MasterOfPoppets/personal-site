@@ -19,7 +19,15 @@
 
       // Load all blog entries - maybe not the best location for this
       Fireblogger.loadAllPosts();
-  }])
+    }
+  ])
+  
+  .controller('IndexCtrl', [
+    'PageFactory', 
+    function (PageFactory) {
+      PageFactory.newPage('Gareth Hughes');
+    }
+  ])
 
   .controller('BlogCtrl', [
     '$scope', 'PageFactory', 'Fireblogger', '$stateParams',
@@ -33,5 +41,6 @@
       PageFactory.setTest('/#services');
 
       PageFactory.newPage('Blog | Gareth Hughes');
-  }]);
+    }
+  ]);
 }());
