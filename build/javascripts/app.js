@@ -26,6 +26,13 @@
             'content': {
               templateUrl: 'partials/content'
             },
+            'portfolio': {
+              templateUrl: 'partials/portfolio',
+              controller: 'PortfolioCtrl'
+            },
+            'blog': {
+              templateUrl: 'partials/blogSection'
+            },
             'contact': {
               templateUrl: 'partials/contact',
               controller: 'ContactFormCtrl'

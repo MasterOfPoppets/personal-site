@@ -4,6 +4,13 @@
   'use strict';
   angular.module('gh.directives', [])
   
+  .directive('ghPortfolioItem', function () {
+    return {
+      restrict: 'E',
+      templateUrl: '/partials/templates/gh-portfolio-item'
+    };
+  })
+  
   .directive('ghScrollingAnchor', function () {
     return {
       restrict: 'A',
@@ -57,7 +64,7 @@
   .directive('ghSocialLink', function () {
     return {
       restrict: 'E',
-      templateUrl: '/templates/gh-social-link.html'
+      templateUrl: '/partials/templates/gh-social-link'
     };
   });
 }());

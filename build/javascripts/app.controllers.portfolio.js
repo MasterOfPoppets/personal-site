@@ -4,6 +4,10 @@
   'use strict';
   angular.module('gh.controllers.portfolio', [])
   
+  .controller('PortfolioCtrl', ['$scope', function ($scope) {
+    
+  }])
+  
 //    .controller('PortfolioCtrl', [
 //      '$scope', 'PageFactory', '$famous',
 //      function ($scope, PageFactory, $famous) {
@@ -32,12 +36,12 @@
 //        PageFactory.newPage('Portfolio | Gareth Hughes');
 //    }])
 
-    .controller('PortfolioItemCtrl', [
-      '$scope', 'PageFactory', 
-      function ($scope, PageFactory) {
-        $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
+  .controller('PortfolioItemCtrl', [
+    '$scope', 'PageFactory', 
+    function ($scope, PageFactory) {
+      $scope.isShowPortfolioItem = PageFactory.showExpandedItem;
 
-        PageFactory.newPage('Portfolio | Gareth Hughes');
-        PageFactory.setShowExpandedItem(true);
-    }]);
+      PageFactory.newPage('Portfolio | Gareth Hughes');
+      PageFactory.setShowExpandedItem(true);
+  }]);
 }());

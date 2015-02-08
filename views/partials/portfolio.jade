@@ -1,18 +1,8 @@
-section#portfolio-items
-  .row
-    .col-sm-4
-      .test(ng-repeat='portfolioLink in portfolioLinks')
-        a(ui-sref='.item({ id: portfolioLink.link })')
-          img(ng-src='{{ portfolioLink.image }}')
-      //fa-app(style='height: 160px;')
-        fa-modifier(fa-size='[200, undefined]' fa-origin='[0.5, 0.5]' fa-align='[0.5, 0.5]' fa-rotate-z='angle.get()')
-          fa-image-surface(fa-image-url='{{ test }}' fa-click='animate()')
-    //.col-sm-4(ng-repeat='portfolioLink in portfolioLinks')
-      a(ui-sref='.item({ id: portfolioLink.link })')
-        img(ng-src='{{ portfolioLink.image }}')
-    .col-sm-8
-      article#portfolio-item-detail(ui-view='portfolioItem')
-//section#portfolio-item(ng-show='isShowPortfolioItem()')
-  .row
-    .col-sm-12
-      article#portfolio-item-detail(ui-view)
+section#portfolio.bg-light-gray
+  .container
+    .row
+      .col-lg-12.text-center
+        h2.section-heading Portfolio
+        h3.section-subheading.text-muted Some examples of my work.
+    .row
+      gh-portfolio-item
