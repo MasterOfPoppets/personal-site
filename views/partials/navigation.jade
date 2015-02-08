@@ -4,7 +4,7 @@ nav.navbar.navbar-default.navbar-fixed-top(gh-shrinking-header)
   .container
     // Brand and toggle get grouped for better mobile display
     .navbar-header
-      button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+      button#navbar-toggle.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
@@ -16,12 +16,10 @@ nav.navbar.navbar-default.navbar-fixed-top(gh-shrinking-header)
         li.hidden
           a(name='#page-top')
         li
-          a(gh-scrolling-anchor href='#services') Services
+          a(gh-scrolling-anchor gh-responsive-menu-collapse href='#services') Services
         li
-          a(gh-scrolling-anchor href='#portfolio') Portfolio
+          a(gh-scrolling-anchor gh-responsive-menu-collapse href='#portfolio') Portfolio
         li
-          a(gh-scrolling-anchor href='#blog') Blog
+          a(gh-scrolling-anchor gh-responsive-menu-collapse href='#blog') Blog
         li
-          a(gh-scrolling-anchor href='#contact') Contact
-          
-script(src='/javascripts/cbpAnimatedHeader.js')
+          a(gh-scrolling-anchor gh-responsive-menu-collapse href='#contact') Contact

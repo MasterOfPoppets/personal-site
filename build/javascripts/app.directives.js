@@ -11,6 +11,17 @@
     };
   })
   
+  .directive('ghResponsiveMenuCollapse', function () {
+    return function (scope, element) {
+      element.on('click', function () {
+        var test = document.getElementById('navbar-toggle');
+        if (test.offsetParent !== null) {
+          test.click(); 
+        }
+      });
+    };
+  })
+  
   .directive('ghScrollingAnchor', function () {
     return {
       restrict: 'A',
