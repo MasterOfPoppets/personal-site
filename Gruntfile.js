@@ -2,8 +2,7 @@
   'use strict';
   module.exports = function (grunt) {
     // Project configuration.
-    grunt.initConfig({ 
-      pkg: grunt.file.readJSON('package.json'),
+    grunt.initConfig({
       bower_concat: {
         all: {
           dest: 'public/javascripts/_bower.js',
@@ -22,12 +21,21 @@
           }
         }
       },
-      uglify: { 
+      simplemocha: {
+        options: {
+          reporter: 'spec',
+          ui: 'bdd'
+        },
+        all: {
+          src: ['test/**/*.js']
+        }
+      },
+      uglify: {
         options: {
           mangle: false
-        }, 
+        },
         my_target: {
-          files: { 
+          files: {
             'public/javascripts/gh.min.js': [
               'build/javascripts/**/*.js'
             ]
@@ -35,18 +43,25 @@
         }
       },
       watch: {
-        files: ['build/javascripts/**/*.js'],
-        tasks: ['uglify']
+        bower: {
+          files: ['bower_components/**'],
+          tasks: ['bower_concat']
+        },
+        build_js: {
+          files: ['build/javascripts/**/*.js'],
+          tasks: ['simplemocha', 'uglify']
+        },
+        test: {
+          files: ['routes/**/*.js', 'lib/**/*.js', 'test/**/*.js'],
+          tasks: ['simplemocha']
+        }
       }
     });
 
-    // Load the plugin that provides the "bower concat" task.
+    // Load the plugins
     grunt.loadNpmTasks('grunt-bower-concat');
-
-    // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    
-    // Load the plugin that provides the "watch" task.
+    grunt.loadNpmTasks('grunt-simple-mocha');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
