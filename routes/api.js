@@ -1,14 +1,14 @@
 (function () {
   'use strict';
-  
+
   var Contact = require('../lib/contact'),
       gm = require('gm');
-      
+
   var IMAGES_DIR = './public/images/';
-  
+
   exports.contact = function (req, res) {
     var contact = new Contact(req.body);
-    
+
     contact.once('error', function (errorType, errors) {
       res.json({
         success: false,
@@ -16,16 +16,16 @@
         errors: errors
       });
     });
-    
+
     contact.once('success', function (info) {
       res.json({
         success: true
       });
     });
-    
+
     contact.processContactForm(req.body);
   };
-  
+
   exports.loadImage = function (req, res) {
     var img = gm(IMAGES_DIR + req.params.section + '/' + req.params.img),
         split = [];

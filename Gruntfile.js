@@ -42,9 +42,7 @@
         },
         my_target: {
           files: {
-            'public/javascripts/gh.min.js': [
-              'build/javascripts/**/*.js'
-            ]
+            'public/javascripts/gh.min.js': ['build/javascripts/**/*.js']
           }
         }
       },
@@ -55,7 +53,7 @@
         },
         client_js: {
           files: ['build/javascripts/**/*.js'],
-          tasks: ['karma:unit:run', 'uglify']
+          tasks: ['uglify', 'karma:unit:run']
         },
         client_js_test: {
           files: ['test/**/*.spec.js'],
