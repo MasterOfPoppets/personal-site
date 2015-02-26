@@ -18,8 +18,8 @@
   ])
 
   .controller('ContactFormCtrl', [
-    '$scope', '$http', '$state'/*, '$famousAnimations'*/,
-    function ($scope, $http, $state/*, $famousAnimations*/) {
+    '$scope', '$http', '$state',
+    function ($scope, $http, $state) {
       $scope.errors = {};
       $scope.formData = {};
       $scope.submitted = false;
@@ -34,7 +34,7 @@
         $scope.submitted = true;
         $http(httpPostObject).success(function (data) {
           if (data.success) {
-            emailSendSuccess(data, $scope, $state/*, $famousAnimations*/);
+            emailSendSuccess(data, $scope, $state);
           } else {
             emailSendFailure(data, $scope);
           }
@@ -44,14 +44,9 @@
   ])
 
   .controller('ContactSuccessCtrl', [
-    '$scope', '$state'/*, '$famousAnimations'*/,
-    function ($scope, $state/*, $famousAnimations*/) {
-      // One day I'd like some famo.us here
-//      $scope.$on('$stateChangeSuccess', function () {
-//        if ($state.is('contact.success')) {
-//          $scope.entryOpacity = $famousAnimations.animateIn();
-//        }
-//      });
+    '$scope', '$state',
+    function ($scope, $state) {
+      // One day I'd like some famo.us here, but for now, do nothing
     }
   ]);
 
@@ -72,12 +67,7 @@
     console.log($scope.errors);
   }
 
-  function emailSendSuccess(data, $scope, $state/*, $famousAnimations*/) {
+  function emailSendSuccess(data, $scope, $state) {
     $scope.formData = {};
-//    $scope.exitOpacity = $famousAnimations.animateOut(
-//      function () {
-//        $state.transitionTo('contact.success');
-//      }
-//    );
   }
 }());

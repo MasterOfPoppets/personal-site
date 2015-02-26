@@ -21,6 +21,12 @@
           }
         }
       },
+      karma: {
+        unit: {
+          configFile: 'karma.conf.js',
+          background: true
+        }
+      },
       simplemocha: {
         options: {
           reporter: 'spec',
@@ -47,12 +53,16 @@
           files: ['bower_components/**'],
           tasks: ['bower_concat']
         },
-        build_js: {
+        client_js: {
           files: ['build/javascripts/**/*.js'],
-          tasks: ['simplemocha', 'uglify']
+          tasks: ['karma:unit:run', 'uglify']
         },
-        test: {
-          files: ['routes/**/*.js', 'lib/**/*.js', 'test/**/*.js'],
+        client_js_test: {
+          files: ['test/**/*.spec.js'],
+          tasks: ['karma:unit:run']
+        },
+        server_js_test: {
+          files: ['routes/**/*.js', 'lib/**/*.js', 'test/**/*.js', '!test/**/*.spec.js'],
           tasks: ['simplemocha']
         }
       }
@@ -60,11 +70,12 @@
 
     // Load the plugins
     grunt.loadNpmTasks('grunt-bower-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-simple-mocha');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task(s).
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['karma:unit:start', 'watch']);
   };
 }());
