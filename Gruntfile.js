@@ -33,7 +33,7 @@
           ui: 'bdd'
         },
         all: {
-          src: ['test/**/*.js']
+          src: ['test/**/*.js', '!test/**/*.spec.js']
         }
       },
       uglify: {

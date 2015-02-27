@@ -1,9 +1,7 @@
 var chai = require('chai'),
+    should = chai.should(),
     sinon = require('sinon'),
     Contact = require('../../lib/contact');
-
-chai.should();
-chai.use(require('chai-things'));
 
 function setEmitTimeout(done) {
   return setTimeout(function () {
